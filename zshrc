@@ -1,5 +1,4 @@
 #!/bin/zsh
-xmodmap ~/.Xmodmap
 export LC_ALL=en_US.UTF8
 export EDITOR=vim
 export TERM=xterm-256color
@@ -110,26 +109,26 @@ zstyle ':completion:*default' list-colors 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33
 
 # Create archive files
 function carchive() {
-	local archive_name="$1.tar.gz"
-	archive_name=${archive_name/\//}
-	tar cvfz "$archive_name" "$1"
+  local archive_name="$1.tar.gz"
+  archive_name=${archive_name/\//}
+  tar cvfz "$archive_name" "$1"
 }
 
 # Uncompress various archive files
 extr() {
   if [ -f $1 ]; then 
     case $1 in
-      (*.tar.gz | *.tgz)	  tar -xvzf $1;;
-		  (*.tar.bz2 | *.tbz2)	tar -xvjf $1;;
-		  (*.gz)			          gunzip -v $1;;
-		  (*.bz2)			          bunzip2 -v $1;;
-		  (*.zip)			          unzip $1;;
-		  (*.rar)			          unrar e $1;;
+      (*.tar.gz | *.tgz)    tar -xvzf $1;;
+      (*.tar.bz2 | *.tbz2)  tar -xvjf $1;;
+      (*.gz)                gunzip -v $1;;
+      (*.bz2)               bunzip2 -v $1;;
+      (*.zip)               unzip $1;;
+      (*.rar)               unrar e $1;;
       (*.tar)               tar -xvf $1;;
       (*.tar.xz)            tar -xJf $1;;
     esac
   else
-	  printf 'Error: can not handle file.'
+    printf 'Error: can not handle file.'
   fi
 }
 
@@ -155,18 +154,20 @@ dotsync() {
   if [[ -d $dir ]]; then
     cd $dir
     git pull
+    cd -
   else
     git clone git://github.com/mo42/dotfiles ~/dotfiles
   fi
   for f in `ls $dir`; do
-    ln -sf $dir/$f ~/.$f
+    if [[ $f != *.md ]]; then
+      ln -sf $dir/$f ~/.$f
+    fi
   done
-  cd -
 }
 
 # Colored prompt
 if [[ "$UID" == "0" ]]; then
   PROMPT="%{$fg_bold[red]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 else
-	PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
+  PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
