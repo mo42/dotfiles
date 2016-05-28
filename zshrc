@@ -2,8 +2,12 @@
 export LC_ALL=en_US.UTF8
 export EDITOR=vim
 export TERM=xterm-256color
-export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.cabal/bin:$PATH
+if [ -d "$HOME/bin" ]; then
+  export PATH=$HOME/bin:$PATH
+fi
+if [ -d "$HOME/.cabal/bin" ]; then
+  export PATH=$HOME/.cabal/bin:$PATH
+fi
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
@@ -77,7 +81,9 @@ alias Led='$EDITOR ~/ledger.dat'
 alias ls='ls --color=always'
 alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
-alias texclean='rm -f *.aux *.bbl *.bcf *.blg *.log *.out *.run.xml *.toc *.lof *.synctex.gz'
+alias texclean='rm -f *.aux *.log *.out'
+alias mc='make clean'
+alias unison='unison -logfile ~/.unison/unison.log'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'

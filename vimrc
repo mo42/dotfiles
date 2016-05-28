@@ -112,3 +112,5 @@ set colorcolumn=80
 set laststatus=2
 " Double newline (useful in various cases)
 imap <c-j> <cr><cr>
+" Insert date
+iab <expr> DATE strftime("%Y-%m-%d")
