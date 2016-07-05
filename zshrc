@@ -81,12 +81,13 @@ alias Led='$EDITOR ~/ledger.dat'
 alias ls='ls --color=always'
 alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
-alias texclean='rm -f *.aux *.log *.out'
 alias mc='make clean'
 alias unison='unison -logfile ~/.unison/unison.log'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
+alias vimv='qmv -f do'
+alias zsrc='source ~/.zshrc'
 # Root's aliases
 if [[ "$UID" == "0" ]]; then
   alias bmount='mount /dev/sdb1 /mnt/usb/'
@@ -169,6 +170,12 @@ dotsync() {
       ln -sf $dir/$f ~/.$f
     fi
   done
+}
+
+# Fix permissions
+pfix() {
+  find . -type d -exec chmod 775 {} \;
+  find . -type f -exec chmod 664 {} \;
 }
 
 # Colored prompt
