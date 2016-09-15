@@ -1,4 +1,5 @@
 #!/bin/zsh
+
 export LC_ALL=en_US.UTF8
 export EDITOR=vim
 export TERM=xterm-256color
@@ -8,6 +9,8 @@ fi
 if [ -d "$HOME/.cabal/bin" ]; then
   export PATH=$HOME/.cabal/bin:$PATH
 fi
+# Space before | and & after completion
+export ZLE_SPACE_SUFFIX_CHARS=$'|&'
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
@@ -88,6 +91,8 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias vimv='qmv -f do'
 alias zsrc='source ~/.zshrc'
+alias makeless='make 2>&1 | less'
+alias texclean='rm -rf *.aux & rm -rf *.log & rm -rf *.out'
 # Root's aliases
 if [[ "$UID" == "0" ]]; then
   alias bmount='mount /dev/sdb1 /mnt/usb/'
@@ -100,6 +105,8 @@ if [[ "$UID" == "0" ]]; then
     alias sysupdate='apt-get update && apt-get update && apt-get upgrade && apt-get clean'
   fi
 fi
+# Lock and suspend
+alias susp='slock & systemctl suspend'
 
 autoload -U colors && colors
 autoload -U compinit
