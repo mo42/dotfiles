@@ -80,12 +80,12 @@ map k gk
 " Allow unsaved buffers
 set hidden
 " Change mode quickly
-inoremap jk <Esc>
+inoremap jk <esc>
 " Fast way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-h> <c-w>h
+map <c-l> <c-w>l
 " New windows are below or right
 set splitbelow
 set splitright
@@ -112,5 +112,9 @@ set colorcolumn=80
 set laststatus=2
 " Double newline (useful in various cases)
 imap <c-j> <cr><cr>
+" No need to leave the home row for backward delete
+imap <c-d> <del>
 " Insert date
 iab <expr> DATE strftime("%Y-%m-%d")
+" Space scrolls down in normal mode
+nmap <space> <pagedown>
