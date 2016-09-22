@@ -107,6 +107,7 @@ if [[ "$UID" == "0" ]]; then
 fi
 # Lock and suspend
 alias susp='slock & systemctl suspend'
+alias med='vim Makefile'
 
 autoload -U colors && colors
 autoload -U compinit
