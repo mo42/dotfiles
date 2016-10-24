@@ -51,7 +51,7 @@ if has("gui_gtk3")
 else
   set background=dark
 endif
-colorscheme badwolf
+color lanox
 " Default encoding
 set encoding=utf8
 " Enable undoing and disable backup and swap files
@@ -96,8 +96,6 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
-" Enable spell checking
-set spell
 " Visually wrap long lines
 set wrap
 " Number of line above and below the cursor
