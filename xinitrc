@@ -15,6 +15,9 @@ do
   xsetroot -name "$BAR_POWER | $BAR_CLOCK | $BAR_REAL_NAME | $BAR_USER"
   sleep 1m
 done &
+if xrandr | grep "VGA1 connected"; then
+  xrandr --output VGA1 --auto --right-of LVDS1
+fi
 setxkbmap us
 xbindkeys
 xinput set-button-map 11 1 2 3 5 4

@@ -80,19 +80,25 @@ alias Zrc='$EDITOR ~/.zshrc'
 alias Mrc='$EDITOR ~/.mutt/muttrc'
 alias Al='$EDITOR ~/.mutt/aliases'
 alias Led='$EDITOR ~/ledger.dat'
+alias Cal='$EDITOR ~/.pal/calendar.pal'
 
 alias ls='ls --color=always'
 alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
+alias agd='pal -r 1'
+alias agm='pal -r 31'
 alias mc='make clean'
 alias unison='unison -logfile ~/.unison/unison.log'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
+# Modify file names in vim
 alias vimv='qmv -f do'
 alias zsrc='source ~/.zshrc'
 alias makeless='make 2>&1 | less'
 alias texclean='rm -rf *.aux & rm -rf *.log & rm -rf *.out'
+# Connect external monitor
+alias vgaconnect='xrandr --output VGA1 --auto --right-of LVDS1'
 # Root's aliases
 if [[ "$UID" == "0" ]]; then
   alias bmount='mount /dev/sdb1 /mnt/usb/'
