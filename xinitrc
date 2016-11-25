@@ -18,9 +18,7 @@ done &
 if xrandr | grep "VGA1 connected"; then
   xrandr --output VGA1 --auto --right-of LVDS1
 fi
-setxkbmap us
 xbindkeys
-xinput set-button-map 11 1 2 3 5 4
-xinput set-button-map 10 1 2 3 5 4 6 7 8 9 10 11 12
-xmodmap ~/.Xmodmap
+#xinput set-button-map 11 1 2 3 5 4
+#xinput set-button-map 10 1 2 3 5 4 6 7 8 9 10 11 12
 exec dwm

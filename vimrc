@@ -116,3 +116,6 @@ imap <c-d> <del>
 iab <expr> DATE strftime("%Y-%m-%d")
 " Space scrolls down in normal mode
 nmap <space> <pagedown>
+" Integrate clang-format
+map <c-k> :pyf /usr/share/clang/clang-format.py<cr>
+imap <c-k> <c-o>:pyf /usr/share/clang/clang-format.py<cr>

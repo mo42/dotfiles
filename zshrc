@@ -105,6 +105,7 @@ if [[ "$UID" == "0" ]]; then
   alias bumount='umount /mnt/usb'
   if [[ -x `which pacman` ]]; then
     alias sysupdate='pacman -Syu && pacman -Scc'
+    alias pacdeb='pacman -R $(pacman -Qtdq)'
   elif [[ -x `which emerge` ]]; then
     alias sysupdate='emerge --sync && emerge -uDU --with-bdeps=y @world'
   elif [[ -x `which apt-get` ]]; then
