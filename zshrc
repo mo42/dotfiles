@@ -87,18 +87,18 @@ alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias agd='pal -r 1'
 alias agm='pal -r 31'
-alias mc='make clean'
-alias unison='unison -logfile ~/.unison/unison.log'
+alias isync='mbsync -a'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
 # Modify file names in vim
 alias vimv='qmv -f do'
 alias zsrc='source ~/.zshrc'
+# Development
 alias makeless='make 2>&1 | less'
+alias mc='make clean'
+alias med='vim Makefile'
 alias texclean='rm -rf *.aux & rm -rf *.log & rm -rf *.out'
-# Connect external monitor
-alias vgaconnect='xrandr --output VGA1 --auto --right-of LVDS1'
 # Root's aliases
 if [[ "$UID" == "0" ]]; then
   alias bmount='mount /dev/sdb1 /mnt/usb/'
@@ -114,7 +114,6 @@ if [[ "$UID" == "0" ]]; then
 fi
 # Lock and suspend
 alias susp='slock & systemctl suspend'
-alias med='vim Makefile'
 
 autoload -U colors && colors
 autoload -U compinit
