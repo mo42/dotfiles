@@ -78,7 +78,6 @@ setopt hash_list_all
 alias Vrc='$EDITOR ~/.vimrc'
 alias Zrc='$EDITOR ~/.zshrc'
 alias Mrc='$EDITOR ~/.mutt/muttrc'
-alias Al='$EDITOR ~/.mutt/aliases'
 alias Led='$EDITOR ~/ledger.dat'
 alias Cal='$EDITOR ~/.pal/calendar.pal'
 
@@ -87,7 +86,7 @@ alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias agd='pal -r 1'
 alias agm='pal -r 31'
-alias isync='mbsync -a'
+alias isync='mbsync -aX'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'

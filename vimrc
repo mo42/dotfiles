@@ -96,12 +96,13 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+autocmd FocusLost * :ws
 " Visually wrap long lines
 set wrap
 " Number of line above and below the cursor
 set scrolloff=5
 " Define leader key
-let mapleader=" "
+let mapleader=","
 " Fast file saving
 noremap <leader>s :w<cr>
 " Show end of lines
@@ -116,6 +117,13 @@ imap <c-d> <del>
 iab <expr> DATE strftime("%Y-%m-%d")
 " Space scrolls down in normal mode
 nmap <space> <pagedown>
+nmap <c-space> <pageup>
+" Regular vim format
+map Q gqip
 " Integrate clang-format
 map <c-k> :pyf /usr/share/clang/clang-format.py<cr>
 imap <c-k> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
+" Void annoying prompts
+set shortmess=a
+" Use make
+map <c-m> :make<cr>
