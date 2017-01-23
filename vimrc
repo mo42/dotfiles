@@ -97,6 +97,8 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 autocmd FocusLost * :ws
+" Automatically convert to unix line endings
+autocmd BufWrite * :set ff=unix
 " Visually wrap long lines
 set wrap
 " Number of line above and below the cursor
