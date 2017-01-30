@@ -35,7 +35,7 @@ set matchtime=2
 set mat=2
 " Enable syntax highlighting and colors
 syntax enable
-" Remove annoying buttons in gui mode
+" Remove annoying buttons in GUI mode
 if has("gui_gtk3")
   " Remove menu bar
   set guioptions-=m
@@ -89,6 +89,9 @@ map <c-l> <c-w>l
 " New windows are below or right
 set splitbelow
 set splitright
+" Move between buffers
+nnoremap <silent> <c-l> :bn<cr>
+nnoremap <silent> <c-h> :bp<cr>
 " Save viminfo somewhere else
 set viminfo+=n~/.vim/viminfo
 " Return to last edit position when opening files
@@ -97,7 +100,7 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 autocmd FocusLost * :ws
-" Automatically convert to unix line endings
+" Automatically convert to Unix line endings
 autocmd BufWrite * :set ff=unix
 " Visually wrap long lines
 set wrap
@@ -107,6 +110,8 @@ set scrolloff=5
 let mapleader=","
 " Fast file saving
 noremap <leader>s :w<cr>
+" Look up help quickly (trailing space intended)
+nnoremap <leader>h :help 
 " Show end of lines
 set colorcolumn=80
 " Always show status line
@@ -129,3 +134,5 @@ imap <c-k> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
 set shortmess=a
 " Use make
 map <c-m> :make<cr>
+" Look for files in the entire subtree
+set path+=**
