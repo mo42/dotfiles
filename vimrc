@@ -51,7 +51,7 @@ if has("gui_gtk3")
 else
   set background=dark
 endif
-color lanox
+color molokai
 " Default encoding
 set encoding=utf8
 " Enable undoing and disable backup and swap files
@@ -122,6 +122,7 @@ imap <c-j> <cr><cr>
 imap <c-d> <del>
 " Insert date
 iab <expr> DATE strftime("%Y-%m-%d")
+iab <expr> FULLISODATE strftime("%Y-%m-%dT%H:%M:%S%z")
 " Space scrolls down in normal mode
 nmap <space> <pagedown>
 nmap <c-space> <pageup>
@@ -136,3 +137,6 @@ set shortmess=a
 map <c-m> :make<cr>
 " Look for files in the entire subtree
 set path+=**
+execute pathogen#infect()
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+let skeletons#autoRegister=1

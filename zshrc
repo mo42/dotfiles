@@ -174,15 +174,15 @@ dotsync() {
   if [[ -d $dir ]]; then
     cd $dir
     git pull
-    cd -
   else
     git clone git://github.com/mo42/dotfiles ~/dotfiles
   fi
-  for f in `ls $dir`; do
+  for f in `ls -I '*.h' -I README.md`; do
     if [[ $f != *.md ]]; then
       ln -sf $dir/$f ~/.$f
     fi
   done
+  cd -
 }
 
 # Fix permissions
