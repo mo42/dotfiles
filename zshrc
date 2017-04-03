@@ -3,6 +3,8 @@
 export LC_ALL=en_US.UTF8
 export EDITOR=vim
 export TERM=xterm-256color
+export LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
+
 if [ -d "$HOME/bin" ]; then
   export PATH=$HOME/bin:$PATH
 fi
@@ -131,6 +133,7 @@ zstyle ':completion:*:*:(|g)vi(|m):*' ignored-patterns '*.(pdf|ps)'
 # Fix completion for the pdf function below
 zstyle ':completion:*:*:pdf:*' file-patterns '*(-/):directories *.(pdf|ps)'
 # Enable colors for completion
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # Create archive files
 function carchive() {
@@ -188,6 +191,13 @@ dotsync() {
     fi
   done
   cd -
+}
+
+# Do something for each file in the directory
+forall() {
+  for f in `ls`; do
+    $@ $f
+  done
 }
 
 # Fix permissions
