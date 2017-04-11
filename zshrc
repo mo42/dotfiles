@@ -190,6 +190,7 @@ dotsync() {
       ln -sf $dir/$f ~/.$f
     fi
   done
+  source ~/.zshrc
   cd -
 }
 

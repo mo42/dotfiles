@@ -137,6 +137,3 @@ set shortmess=a
 map <c-m> :make<cr>
 " Look for files in the entire subtree
 set path+=**
-execute pathogen#infect()
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-let skeletons#autoRegister=1
