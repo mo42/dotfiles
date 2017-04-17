@@ -137,3 +137,11 @@ set shortmess=a
 map <c-m> :make<cr>
 " Look for files in the entire subtree
 set path+=**
+function! s:insert_gates()
+  let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  execute "normal! i#ifndef " . gatename
+  execute "normal! o#define " . gatename . " "
+  execute "normal! Go#endif /* " . gatename . " */"
+  normal! kk
+endfunction
+autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
