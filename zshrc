@@ -106,6 +106,7 @@ alias mc='make clean'
 alias med='vim Makefile'
 alias texclean='rm -rf *.aux & rm -rf *.log & rm -rf *.out'
 alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
+alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 # Root's aliases
 if [[ "$UID" == "0" ]]; then
   alias bmount='mount /dev/sdb1 /mnt/usb/'
