@@ -104,7 +104,6 @@ alias zsrc='source ~/.zshrc'
 alias makeless='make 2>&1 | less -r'
 alias mc='make clean'
 alias med='vim Makefile'
-alias texclean='rm -rf *.aux & rm -rf *.log & rm -rf *.out'
 alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 # Root's aliases
@@ -121,7 +120,7 @@ if [[ "$UID" == "0" ]]; then
   fi
 fi
 # Lock and suspend
-alias susp='slock & systemctl suspend'
+alias susp='i3lock -c 000000 & systemctl suspend'
 
 autoload -U colors && colors
 autoload -U compinit
@@ -213,6 +212,12 @@ pfix() {
 clean() {
   find . -name '*.o' -print -exec rm {} \;
   find . -name '*.pyc' -print -exec rm {} \;
+}
+
+texclean() {
+  rm -rf *.aux
+  rm -rf *.log
+  rm -rf *.out
 }
 
 # Colored prompt
