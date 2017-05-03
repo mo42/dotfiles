@@ -1,21 +1,5 @@
 #!/bin/zsh
-while true
-do
-  if [ -f "/sys/class/power_supply/AC/online" ] && [ `cat /sys/class/power_supply/AC/online` -eq "1" ]; then
-    BAR_POWER="AC"
-  elif [ -f "/sys/class/power_supply/BAT0/capacity" ]; then
-    BAR_POWER=`cat /sys/class/power_supply/BAT0/capacity`
-  else
-    BAR_POWER="AC"
-  fi
-  BAR_POWER="Power: [$BAR_POWER]"
-  BAR_CLOCK=`date +'%Y-%m-%d %H:%M'`
-  BAR_REAL_NAME="`getent passwd $USER | cut -d ':' -f 5 | cut -d ',' -f 1`"
-  BAR_USER="$USER@`hostname`"
-  xsetroot -name "$BAR_POWER | $BAR_CLOCK | $BAR_REAL_NAME | $BAR_USER"
-  sleep 1m
-done &
 if xrandr | grep "VGA1 connected"; then
   xrandr --output VGA1 --auto --right-of LVDS1
 fi
-exec dwm
+exec i3
