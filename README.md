@@ -12,5 +12,4 @@ inspirational source though.
 * `.xinitrc`
 * `.zlogin`
 * `.zshrc`
-* dwm config
-* st config
+* `.i3status.conf`
