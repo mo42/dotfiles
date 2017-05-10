@@ -84,6 +84,7 @@ alias led='$EDITOR ~/ledger.dat'
 alias vical='$EDITOR ~/.pal/calendar.pal'
 
 alias ls='ls --color=always'
+alias ll='ls -lh --color=always'
 alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias agd='pal -r 1'
@@ -185,11 +186,10 @@ dotsync() {
     git pull
   else
     git clone git://github.com/mo42/dotfiles ~/dotfiles
+    cd ~/dotfiles
   fi
-  for f in `ls -I '*.h' -I README.md`; do
-    if [[ $f != *.md ]]; then
-      ln -sf $dir/$f ~/.$f
-    fi
+  for f in `ls -I README.md`; do
+    ln -sf $dir/$f ~/.$f
   done
   source ~/.zshrc
   cd -
@@ -226,3 +226,6 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
