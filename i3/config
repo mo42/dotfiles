@@ -102,3 +102,7 @@ bar {
         status_command i3status
         position top
 }
+
+# Backlight
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
