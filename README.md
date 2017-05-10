@@ -12,4 +12,4 @@ inspirational source though.
 * `.xinitrc`
 * `.zlogin`
 * `.zshrc`
-* `.i3status.conf`
+* i3 config and `.i3status.conf`
