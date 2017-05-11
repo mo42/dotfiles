@@ -1,6 +1,6 @@
 set $mod Mod1
 
-font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -99,10 +99,25 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-        position top
+  colors {
+    # Type             border  backgr. font
+    focused_workspace  #008fff #007fff #ffffff
+    active_workspace   #333333 #5f676a #ffffff
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace   #aa0000 #990000 #ffffff
+	}
+  status_command i3status
+  position top
 }
+
+# Type         border  backgr. font
+client.focused #008fff #007fff #ffffff
+client.urgent  #aa0000 #990000 #ffffff
 
 # Backlight
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
+
+# Gaps
+gaps inner 4
+gaps outer 0
