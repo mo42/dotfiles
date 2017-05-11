@@ -121,3 +121,6 @@ bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 # Gaps
 gaps inner 4
 gaps outer 0
+smart_gaps on
+
+new_window pixel 2
