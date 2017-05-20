@@ -118,6 +118,8 @@ client.urgent  #aa0000 #990000 #ffffff
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 
+bindsym $mod+c exec chromium
+
 # Gaps
 gaps inner 4
 gaps outer 0

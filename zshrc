@@ -88,6 +88,7 @@ alias ll='ls -lh --color=always'
 alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias agd='pal -r 1'
+alias cal='cal -mw'
 alias agm='pal -r 31'
 alias isync='mbsync -aX'
 alias ..='cd ..'
@@ -227,5 +228,3 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
