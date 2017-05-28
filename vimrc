@@ -25,6 +25,7 @@ set hlsearch
 " Search while typing
 set incsearch
 " If the search string contains uppercase letters do not ignore case
+set ignorecase
 set smartcase 
 " Regular expression as usual
 set magic
