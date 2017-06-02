@@ -1,0 +1,128 @@
+# Load user specific settings
+source ~/.mutt/muttrc.user
+# Remove help line on top
+set help=no
+# Save edited mail
+set postpone=yes
+# Do not pause while moving from folder to folder
+set sleep_time=0
+# Pad blank lines to the bottom of the screen
+set tilde
+# Aligns with text
+set attribution="* %f %d:"
+# Specifiy type and location of the mails
+set mbox_type=Maildir
+set folder="~/.maildir/"
+# View HTML mails
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+# Use ISO 8601 date
+set date_format="%Y-%m-%d %H:%M:%S %z"
+set index_format='%Z %{%Y-%m-%d} %-22.22L %s'
+# Call urlview to extract links
+macro index \cb '|urlview\n' 'call urlview to extract URLs'
+macro pager \cb '|urlview\n' 'call urlview to extract URLs'
+# Wrap lines at the word boundary and do not show marker
+set smart_wrap
+unset markers
+# Specifiy forward format (see attribution) and add message to body
+set forward_format="/ %f %d:
+set forward_quote
+# 
+set editor="vim"
+# Allow changes to the header
+set edit_headers=yes
+set pager_context=3
+set pager_index_lines=11
+set menu_scroll
+set reverse_realname=no
+# Do not beep
+set beep=no
+set hidden_host
+# Weed headers
+set weed
+set mime_forward_decode
+set forward_quote
+set include=yes
+set markers=no
+set sort=threads
+set sort_aux=date-sent
+set allow_8bit
+set fast_reply
+set sleep_time=0
+# Keep sent mails unencrypted
+set fcc_clear
+
+ignore	*
+unignore	return-path from to cc bcc subject resent-by date
+unignore	authenticated-sender apparently-from
+unignore	x-address x-organisation reply-to
+unignore	mail-followup-to 
+
+# Do not sign outgoing mails
+set crypt_autosign=no
+# Do not encrypt outgoing mails
+set crypt_autoencrypt=no
+# Encrypt answers from encrypted mails
+set crypt_replyencrypt=yes
+# Forget PGP password after one hour
+set pgp_timeout=3600
+set pgp_use_gpg_agent=yes
+
+# Load GPG options
+source /usr/share/doc/mutt/samples/gpg.rc
+
+# Put some information into the header
+my_hdr User-Agent: `mutt -v | head -1`
+
+macro index,pager A "<save-message>=mo42/archive/<enter>" "archive messages"
+
+bind index '{'      previous-thread
+bind index '}'      next-thread
+bind index gg       first-entry
+bind index G        last-entry
+bind index R        group-reply
+bind index <space>  collapse-thread
+
+macro index O "<shell-escape>mbsync -aX<enter>" "run mbsync to sync all mail"
+# Change folders quickly
+macro index 'M' <change-folder>~/.maildir/mo42/inbox<enter>
+macro index 'I' <change-folder>~/.maildir/inf/inbox<enter>
+
+# Addresses
+set query_command="abook --mutt-query '%s'"
+macro index,pager a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor <tab> complete-query
+
+# Color settings
+color signature   color238    color233
+color normal      color7      default
+color hdrdefault  color2      default
+color quoted      color2      color233
+color quoted1     color3      default
+color quoted2     color1      color233
+color quoted3     color4      default
+color signature   color6      default
+color indicator   white       red
+color error       color11     default
+color status      color7      blue
+color tree        color9      default
+color tilde       color4      default
+color attachment  color11     default
+color markers     color9      default
+color message     color7      default
+color search      color15     magenta
+color bold        color11     default
+color header      color3      default  "^From:"
+color header      color1      color233 "^(Subject|X-Spam-Score|Authentication-Res#ults):"
+color header      color10     default  "^Date:"
+color header      color6      default  "^To:"
+color header      color240    default  "^Cc:"
+color index       color240    color233 "~D(!~p|~p)"
+color index       color12     color233 ~N
+color index       color232    color124 ~=
+color body        color128    color233 '[-.+\w]+@[-.\w]+[^.]'
+color body        color39     color233 "(ftp|http|https)://[^ >]*"
+color body        color39     color233 "<URL:[^ ]*>"
+color body        brightred   color233 "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"
+

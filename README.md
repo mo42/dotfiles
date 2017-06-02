@@ -13,3 +13,4 @@ inspirational source though.
 * `.zlogin`
 * `.zshrc`
 * i3 config and `.i3status.conf`
+* `.muttrc`
