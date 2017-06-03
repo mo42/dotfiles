@@ -14,3 +14,4 @@ inspirational source though.
 * `.zshrc`
 * i3 config and `.i3status.conf`
 * `.muttrc`
+* `mpd.conf`
