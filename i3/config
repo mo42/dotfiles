@@ -119,6 +119,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 
 bindsym $mod+c exec chromium
+bindsym $mod+n exec urxvt -e ncmpcpp
 
 # Gaps
 gaps inner 4
