@@ -138,6 +138,8 @@ set shortmess=a
 map <c-m> :make<cr>
 " Look for files in the entire subtree
 set path+=**
+" Enable spell checking
+set spell
 function! s:insert_gates()
   let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
   execute "normal! i#ifndef " . gatename

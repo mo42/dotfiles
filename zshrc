@@ -117,14 +117,16 @@ if [[ "$UID" == "0" ]]; then
     alias sysupdate='pacman --color always -Syu && pacman -Scc'
     alias pacdeb='pacman --color always -R $(pacman -Qtdq)'
     alias pacman='pacman --color always'
+    alias susp='i3lock -c 000000 & systemctl suspend'
   elif [[ -x `which emerge` ]]; then
     alias sysupdate='emerge --sync && emerge -uDU --with-bdeps=y @world'
   elif [[ -x `which apt-get` ]]; then
     alias sysupdate='apt-get update && apt-get update && apt-get upgrade && apt-get clean'
+  elif [[ -x `which xbps-intall` ]]; then
+    alias sysupdate='xbps-install -Su'
+    alias susp='i3lock -c 000000 & zzz'
   fi
 fi
-# Lock and suspend
-alias susp='i3lock -c 000000 & systemctl suspend'
 
 autoload -U colors && colors
 autoload -U compinit
