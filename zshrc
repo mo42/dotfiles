@@ -4,6 +4,7 @@ export LC_ALL=en_US.UTF8
 export EDITOR=vim
 export TERM=xterm-256color
 export LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
+export OS_RELEASE_ID=`cat /etc/*-release | sed -n '/^ID=/p' | cut -d '"' -f2`
 
 if [ -d "$HOME/bin" ]; then
   export PATH=$HOME/bin:$PATH
@@ -81,14 +82,15 @@ alias vrc='$EDITOR ~/.vimrc'
 alias zrc='$EDITOR ~/.zshrc'
 alias mrc='$EDITOR ~/.mutt/muttrc'
 alias led='$EDITOR ~/ledger.dat'
+# Task aliases
 alias te='task edit'
 alias ta='task add'
+alias cal='task calendar'
 
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always'
 alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
-alias cal='cal -mw'
 alias isync='mbsync -aX'
 alias pdflatex='pdflatex --shell-escape'
 alias ..='cd ..'
@@ -109,22 +111,29 @@ alias med='vim Makefile'
 alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
-# Root's aliases
+
+
 if [[ "$UID" == "0" ]]; then
+  # Root's aliases
   alias bmount='mount /dev/sdb1 /mnt/usb/'
   alias bumount='umount /mnt/usb'
   if [[ -x `which pacman` ]]; then
     alias sysupdate='pacman --color always -Syu && pacman -Scc'
     alias pacdeb='pacman --color always -R $(pacman -Qtdq)'
     alias pacman='pacman --color always'
-    alias susp='i3lock -c 000000 & systemctl suspend'
   elif [[ -x `which emerge` ]]; then
     alias sysupdate='emerge --sync && emerge -uDU --with-bdeps=y @world'
   elif [[ -x `which apt-get` ]]; then
     alias sysupdate='apt-get update && apt-get update && apt-get upgrade && apt-get clean'
-  elif [[ -x `which xbps-intall` ]]; then
+  elif [[ "$OS_RELEASE_ID" == "void" ]]; then
     alias sysupdate='xbps-install -Su'
-    alias susp='i3lock -c 000000 & zzz'
+  fi
+else
+  # User's aliases
+  if [[ -x `which pacman` ]]; then
+    alias susp='i3lock -c 000000 & systemctl suspend'
+  elif [[ "$OS_RELEASE_ID" == "void" ]]; then
+    alias susp='i3lock -c 000000 & sudo zzz'
   fi
 fi
 

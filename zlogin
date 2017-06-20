@@ -1,1 +1,1 @@
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx -nocursor
+[[ -z $DISPLAY && "$(fgconsole)" -eq 1 ]] && exec startx
