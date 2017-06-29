@@ -1,0 +1,7 @@
+URxvt.saveLines: 1000
+URxvt.scrollBar: false
+URxvt.foreground: white
+URxvt.background: black
+URxvt.font: xft:Liberation Mono:pixelsize=18:antialias=true:hinting=true
+URxvt.transparent: true
+URxvt.shading: 20

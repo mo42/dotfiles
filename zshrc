@@ -85,7 +85,13 @@ alias led='$EDITOR ~/ledger.dat'
 # Task aliases
 alias te='task edit'
 alias ta='task add'
-alias cal='task calendar'
+if [[ -x `which task` ]]; then
+  alias cal='task calendar'
+else
+  alias cal='cal -nw'
+fi
+alias tb='task burndown'
+alias tt='task due:today'
 
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always'
@@ -111,6 +117,7 @@ alias med='vim Makefile'
 alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
+alias unison='unison -logfile .unison/logfile'
 
 
 if [[ "$UID" == "0" ]]; then
