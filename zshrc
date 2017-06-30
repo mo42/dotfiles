@@ -209,9 +209,23 @@ dotsync() {
     git clone git://github.com/mo42/dotfiles ~/dotfiles
     cd ~/dotfiles
   fi
-  for f in `ls -I README.md`; do
-    ln -sf $dir/$f ~/.$f
-  done
+  ln -sf $dir/abcde.conf ~/.abcde.conf
+  ln -sf $dir/gitignore ~/.gitignore
+  ln -sf $dir/vimrc ~/.vimrc
+  ln -sf $dir/vrapperrc ~/.vrapperrc
+  ln -sf $dir/xinitrc ~/.xinitrc
+  ln -sf $dir/zlogin ~/.zlogin
+  ln -sf $dir/zshrc ~/.zshrc
+  ln -sf $dir/i3status.conf~/.i3status.conf
+  ln -sf $dir/i3 ~/.config/i3
+  if [[ -d ~/.mutt ]]; then
+    ln -sf $dir/muttrc ~/mutt/muttrc
+  else
+    mkdir ~/.mutt
+    ln -sf $dir/muttrc ~/mutt/muttrc
+  fi
+  ln -sf $dir/mpd.conf ~/.mpd.conf
+  ln -sf $dir/Xdefaults ~/.Xdefaults
   source ~/.zshrc
   cd -
 }
