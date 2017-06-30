@@ -216,13 +216,13 @@ dotsync() {
   ln -sf $dir/xinitrc ~/.xinitrc
   ln -sf $dir/zlogin ~/.zlogin
   ln -sf $dir/zshrc ~/.zshrc
-  ln -sf $dir/i3status.conf~/.i3status.conf
-  ln -sf $dir/i3 ~/.config/i3
+  ln -sf $dir/i3status.conf ~/.i3status.conf
+  ln -sf $dir/i3 ~/.config/
   if [[ -d ~/.mutt ]]; then
-    ln -sf $dir/muttrc ~/mutt/muttrc
+    ln -sf $dir/muttrc ~/.mutt/muttrc
   else
     mkdir ~/.mutt
-    ln -sf $dir/muttrc ~/mutt/muttrc
+    ln -sf $dir/muttrc ~/.mutt/muttrc
   fi
   ln -sf $dir/mpd.conf ~/.mpd.conf
   ln -sf $dir/Xdefaults ~/.Xdefaults
