@@ -122,7 +122,7 @@ bindsym $mod+c exec chromium
 bindsym $mod+n exec urxvt -e ncmpcpp
 
 # Gaps
-gaps inner 4
+gaps inner 5
 gaps outer 0
 smart_gaps on
 
