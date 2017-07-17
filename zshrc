@@ -95,6 +95,7 @@ alias tt='task due:today'
 
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always'
+alias grep='grep --color=auto'
 alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias isync='mbsync -aX'
@@ -107,6 +108,8 @@ alias df='df -h'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
+alias acp='rsync --archive --progress'
+
 # Modify file names in vim
 alias vimv='qmv -f do'
 alias zsrc='source ~/.zshrc'
