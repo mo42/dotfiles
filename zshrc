@@ -110,6 +110,8 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias acp='rsync --archive --progress'
 
+alias cdd='cd ~/downloads'
+
 # Modify file names in vim
 alias vimv='qmv -f do'
 alias zsrc='source ~/.zshrc'
