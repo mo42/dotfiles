@@ -94,7 +94,7 @@ alias tb='task burndown'
 alias tt='task due:today'
 
 alias ls='ls --color=always'
-alias ll='ls -lh --color=always'
+alias ll='ls -lh --color=always --time-style=long-iso'
 alias grep='grep --color=auto'
 alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
@@ -223,6 +223,7 @@ dotsync() {
   ln -sf $dir/zshrc ~/.zshrc
   ln -sf $dir/i3status.conf ~/.i3status.conf
   ln -sf $dir/i3 ~/.config/
+  ln -sf $dir/newsbeuterconfig ~/.config/newsbeuter/config
   if [[ -d ~/.mutt ]]; then
     ln -sf $dir/muttrc ~/.mutt/muttrc
   else
