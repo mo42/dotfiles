@@ -222,7 +222,7 @@ dotsync() {
   ln -sf $dir/zlogin ~/.zlogin
   ln -sf $dir/zshrc ~/.zshrc
   ln -sf $dir/i3status.conf ~/.i3status.conf
-  ln -sf $dir/i3 ~/.config/
+  ln -sf $dir/i3config ~/.config/i3/config
   ln -sf $dir/newsbeuterconfig ~/.config/newsbeuter/config
   if [[ -d ~/.mutt ]]; then
     ln -sf $dir/muttrc ~/.mutt/muttrc

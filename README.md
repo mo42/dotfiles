@@ -16,3 +16,4 @@ inspirational source though.
 * `.muttrc`
 * `mpd.conf`
 * `Xdefaults`
+* newsbeuter
