@@ -207,11 +207,12 @@ pdf() {
 # Sync all dot files
 dotsync() {
   local dir=~/dotfiles
+  pushd
   if [[ -d $dir ]]; then
     cd $dir
     git pull
   else
-    git clone git://github.com/mo42/dotfiles ~/dotfiles
+    git clone git://github.com/mo42/dotfiles $dir
     cd ~/dotfiles
   fi
   ln -sf $dir/abcde.conf ~/.abcde.conf
@@ -244,7 +245,7 @@ dotsync() {
   ln -sf $dir/Xdefaults ~/.Xdefaults
   ln -sf $dir/dircolors ~/.dircolors
   source ~/.zshrc
-  cd -
+  popd
 }
 
 # Do something for each file in the directory
