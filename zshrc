@@ -193,7 +193,7 @@ fnd() {
   find . -iname "*$1*"
 }
 
-# Open PDf files
+# Open PDF files
 pdf() {
   if [[ -x `which zathura` ]]; then
     zathura --fork $1
