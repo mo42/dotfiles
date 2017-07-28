@@ -124,7 +124,6 @@ alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
 alias unison='unison -logfile .unison/logfile'
 
-
 if [[ "$UID" == "0" ]]; then
   # Root's aliases
   alias bmount='mount /dev/sdb1 /mnt/usb/'
@@ -244,6 +243,7 @@ dotsync() {
   ln -sf $dir/mpd.conf ~/.mpd.conf
   ln -sf $dir/Xdefaults ~/.Xdefaults
   ln -sf $dir/dircolors ~/.dircolors
+  ln -sf $dir/taskrc ~/.taskrc
   source ~/.zshrc
   popd
 }
