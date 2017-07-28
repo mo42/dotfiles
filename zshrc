@@ -225,13 +225,13 @@ dotsync() {
   if [[ -d ~/.config/newsbeuter ]]; then
     ln -sf $dir/newsbeuterconfig ~/.config/newsbeuter/config
   else
-    make ~/.config/i3
+    mkdir ~/.config/i3
     ln -sf $dir/newsbeuterconfig ~/.config/newsbeuter/config
   fi
   if [[ -d ~/.config/i3 ]]; then
     ln -sf $dir/i3config ~/.config/i3/config
   else
-    make ~/.config/i3
+    mkdir ~/.config/i3
     ln -sf $dir/i3config ~/.config/i3/config
   fi
   if [[ -d ~/.mutt ]]; then
