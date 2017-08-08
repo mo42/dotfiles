@@ -245,6 +245,7 @@ dotsync() {
   ln -sf $dir/Xdefaults ~/.Xdefaults
   ln -sf $dir/dircolors ~/.dircolors
   ln -sf $dir/taskrc ~/.taskrc
+  ln -sf $dir/Xresources ~/.Xresources
   source ~/.zshrc
   popd
 }
