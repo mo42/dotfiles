@@ -123,6 +123,7 @@ alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
 alias unison='unison -logfile .unison/logfile'
+alias i3lock='i3lock -c 000000'
 
 if [[ "$UID" == "0" ]]; then
   # Root's aliases

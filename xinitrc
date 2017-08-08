@@ -1,4 +1,4 @@
 #!/bin/zsh
-sh ~/.fehbg &
-xmodmap ~/.Xmodmap &
+xrdb ~/.Xresources
+xmodmap ~/.Xmodmap
 exec i3

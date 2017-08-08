@@ -148,3 +148,4 @@ function! s:insert_gates()
   normal! kk
 endfunction
 autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+let g:colorizer_auto_color = 1

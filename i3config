@@ -103,7 +103,7 @@ bindsym $mod+r mode "resize"
 bar {
   colors {
     # Type             border  backgr. font
-    focused_workspace  #008fff #007fff #ffffff
+    focused_workspace  #0083f7 #0083f7 #ffffff
     active_workspace   #333333 #5f676a #ffffff
     inactive_workspace #333333 #222222 #888888
     urgent_workspace   #aa0000 #990000 #ffffff
