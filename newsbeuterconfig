@@ -9,3 +9,4 @@ bind-key G pagedown
 bind-key g pageup
 show-read-articles no
 show-read-feeds no
+datetime-format "%Y-%m-%d"

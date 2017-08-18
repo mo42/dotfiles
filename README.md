@@ -17,4 +17,4 @@ inspirational source though.
 * `mpd.conf`
 * `Xdefaults`
 * newsbeuter
-* `.Xresource`
+* `.Xresources`

@@ -5,3 +5,4 @@ URxvt.background: black
 URxvt.font: xft:Liberation Mono:pixelsize=18:antialias=true:hinting=true
 URxvt.transparent: true
 URxvt.shading: 20
+URxvt.cursorBlink: 0
