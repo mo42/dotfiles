@@ -52,6 +52,8 @@ set fast_reply
 set sleep_time=0
 # Keep sent mails unencrypted
 set fcc_clear
+# Header caching
+set header_cache="~/.mutt/cache"
 
 ignore	*
 unignore	return-path from to cc bcc subject resent-by date

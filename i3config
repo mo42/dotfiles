@@ -76,8 +76,6 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-workspace_auto_back_and_forth yes
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -120,7 +118,7 @@ client.urgent  #aa0000 #990000 #ffffff
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 
-bindsym $mod+c exec chromium
+bindsym $mod+c exec chromium --no-referrer
 bindsym $mod+n exec urxvt -e ncmpcpp
 
 # Gaps
