@@ -110,9 +110,11 @@ set scrolloff=5
 " Define leader key
 let mapleader=","
 " Fast file saving
-noremap <leader>s :w<cr>
+noremap <leader>w :w<cr>
 " Look up help quickly (trailing space intended)
 nnoremap <leader>h :help 
+" Close window
+noremap <leader>q :q<cr>
 " Show end of lines
 set colorcolumn=80
 " Always show status line
@@ -148,4 +150,5 @@ function! s:insert_gates()
   normal! kk
 endfunction
 autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
-let g:colorizer_auto_color = 1
+" Make ctrl-f directly available
+map <leader>f <esc>:<c-f>i
