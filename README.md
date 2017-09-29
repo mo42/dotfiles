@@ -18,3 +18,4 @@ inspirational source though.
 * `Xdefaults`
 * newsbeuter
 * `.Xresources`
+* `.Xmodmap`
