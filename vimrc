@@ -115,6 +115,8 @@ noremap <leader>w :w<cr>
 nnoremap <leader>h :help 
 " Close window
 noremap <leader>q :q<cr>
+" Repeat last colon command
+map <leader>. @:
 " Show end of lines
 set colorcolumn=80
 " Always show status line
@@ -151,4 +153,4 @@ function! s:insert_gates()
 endfunction
 autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 " Make ctrl-f directly available
-map <leader>f <esc>:<c-f>i
+map <leader>f <esc>:<c-f>
