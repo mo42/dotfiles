@@ -120,6 +120,7 @@ bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 
 bindsym $mod+c exec chromium --no-referrer
 bindsym $mod+n exec urxvt -e ncmpcpp
+bindsym $mod+o exec i3lock -c 000000
 
 # Gaps
 gaps inner 5
