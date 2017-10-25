@@ -92,6 +92,7 @@ else
 fi
 alias tb='task burndown'
 alias tt='task due:today'
+alias td='task done'
 
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
@@ -122,6 +123,8 @@ alias med='vim Makefile'
 alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
+alias trailspace='grep -n "\s$"'
+
 alias unison='unison -logfile .unison/logfile'
 alias i3lock='i3lock -c 000000'
 

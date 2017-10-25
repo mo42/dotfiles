@@ -1,3 +1,10 @@
 data.location=~/.config/task
 include /usr/share/doc/task/rc/dark-256.theme
 rc.dateformat=y-m-d h:n
+
+default.due=tom
+
+urgency.next.coefficient      =  12.0
+urgency.waiting.coefficient   = -10.0
+urgency.scheduled.coefficient =  6.0
+urgency.blocked.coefficient   = -12.0
