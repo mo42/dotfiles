@@ -70,6 +70,8 @@ set crypt_replyencrypt=yes
 # Forget PGP password after one hour
 set pgp_timeout=3600
 set pgp_use_gpg_agent=yes
+# Do not scroll to very end
+set menu_context=7
 
 # Load GPG options
 source /usr/share/doc/mutt/samples/gpg.rc

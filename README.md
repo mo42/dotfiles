@@ -14,8 +14,7 @@ inspirational source though.
 * `.zshrc`
 * i3 config and `.i3status.conf`
 * `.muttrc`
-* `mpd.conf`
-* `Xdefaults`
-* newsbeuter
+* `.mpd.conf`
+* `.Xdefaults`
 * `.Xresources`
 * `.Xmodmap`
