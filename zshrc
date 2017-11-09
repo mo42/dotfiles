@@ -124,6 +124,7 @@ alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
 alias trailspace='grep -n "\s$"'
+alias gd='git diff'
 
 alias unison='unison -logfile .unison/logfile'
 alias i3lock='i3lock -c 000000'
