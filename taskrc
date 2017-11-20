@@ -13,3 +13,7 @@ report.next.description       = Most urgent tasks
 report.next.filter            = status:pending limit:page
 report.next.labels            = ID,Deps,P,Project,Tag,Recur,S,Due Date,Due,Until,Description,Urg
 report.next.sort              = urgency-
+
+report.ready.columns          = id,project,tags,due.relative,description
+report.ready.labels           = ID,Project,Tags,Due,Description
+report.ready.sort             = urgency

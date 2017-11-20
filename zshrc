@@ -91,7 +91,7 @@ else
   alias cal='cal -nw'
 fi
 alias tb='task burndown'
-alias tt='task due:today'
+alias tt='task ready'
 alias td='task done'
 
 alias ls='ls --color=always'
