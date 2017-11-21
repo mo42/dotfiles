@@ -16,4 +16,4 @@ report.next.sort              = urgency-
 
 report.ready.columns          = id,project,tags,due.relative,description
 report.ready.labels           = ID,Project,Tags,Due,Description
-report.ready.sort             = urgency
+report.ready.sort             = urgency-
