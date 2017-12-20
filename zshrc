@@ -245,6 +245,12 @@ dotsync() {
     mkdir ~/.mutt
     ln -sf $dir/muttrc ~/.mutt/muttrc
   fi
+  if [[ -d ~/.config/qutebrowser ]]; then
+    ln -sf $dir/qutebrowserconfig.yml
+  else
+    mkdir ~/.config/qutebrowser
+    ln -sf $dir/qutebrowserconfig.yml
+  fi
   ln -sf $dir/mpd.conf ~/.mpd.conf
   ln -sf $dir/Xdefaults ~/.Xdefaults
   ln -sf $dir/dircolors ~/.dircolors

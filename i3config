@@ -107,7 +107,7 @@ bar {
     urgent_workspace   #aa0000 #990000 #ffffff
 	}
   status_command i3status
-  position top
+  position bottom
 }
 
 # Type         border  backgr. font
@@ -118,7 +118,7 @@ client.urgent  #aa0000 #990000 #ffffff
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 
-bindsym $mod+c exec firefox
+bindsym $mod+c exec qutebrowser
 bindsym $mod+n exec urxvt -e ncmpcpp
 bindsym $mod+o exec i3lock -c 000000
 
