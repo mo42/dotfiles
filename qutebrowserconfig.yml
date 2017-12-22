@@ -295,6 +295,6 @@ global:
   - \bcontinue\b
   new_instance_open_target: window
   scrolling.smooth: true
-  tabs.favicons.scale: 2.0
+  tabs.favicons.scale: 1.0
   tabs.new_position.related: next
   tabs.select_on_remove: next

@@ -286,6 +286,13 @@ texclean() {
   rm -rf *.out
 }
 
+mvmp3() {
+  mount /dev/sdc1 /mnt/usb
+  rm /mnt/usb/*.mp3
+  mv /home/mo/downloads/*.mp3 /mnt/usb
+  umount /mnt/usb/
+}
+
 # Colored prompt
 if [[ "$UID" == "0" ]]; then
   PROMPT="%{$fg_bold[red]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
