@@ -9,6 +9,8 @@ set number
 set relativenumber
 " Highlight the current line
 set cursorline
+" Highlight the current column
+set cursorcolumn
 " Enable file type plugins
 filetype plugin on
 " Read the file again when changed outside
@@ -18,6 +20,9 @@ set wildmode=longest,full
 set wildmenu
 " Show word completion
 set completeopt=longest,menuone,preview
+" Show specific characters
+set list
+set listchars=tab:>-,trail:·
 " Ignore some file types
 set wildignore+=*.o,*.pdf
 " Highlight search results
