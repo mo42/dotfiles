@@ -1,4 +1,14 @@
 set nocompatible
+filetype off
+" Set up Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+call vundle#end()
+" Enable file type plugins
+filetype plugin on
 " No annoyances
 set noerrorbells
 set novisualbell
@@ -11,8 +21,6 @@ set relativenumber
 set cursorline
 " Highlight the current column
 set cursorcolumn
-" Enable file type plugins
-filetype plugin on
 " Read the file again when changed outside
 set autoread
 " Use enhanced command completion
