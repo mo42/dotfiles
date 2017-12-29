@@ -2,6 +2,9 @@ data.location=~/.config/task
 include /usr/share/doc/task/rc/dark-256.theme
 include ~/dotfiles/task.theme
 rc.dateformat=y-m-d h:n
+weekstart=Monday
+displayweeknumber=yes
+calendar.holidays=none
 
 urgency.next.coefficient      =  12.0
 urgency.waiting.coefficient   = -10.0
