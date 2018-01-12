@@ -157,13 +157,13 @@ map <c-m> :make<cr>
 set path+=**
 " Enable spell checking
 set spell
-function! s:insert_gates()
-  let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
-  execute "normal! i#ifndef " . gatename
-  execute "normal! o#define " . gatename . " "
-  execute "normal! Go#endif /* " . gatename . " */"
-  normal! kk
+function! s:insert_guards()
+  let guardname = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  execute "normal! i#ifndef " . guardname
+  execute "normal! o#define " . guardname . " "
+  execute "normal! Go#endif /* " . guardname . " */"
+  normal! ko
 endfunction
-autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+autocmd BufNewFile *.{h,hpp} call <SID>insert_guards()
 " Make ctrl-f directly available
 map <leader>f <esc>:<c-f>
