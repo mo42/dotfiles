@@ -6,6 +6,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'takac/vim-hardtime'
+Plugin 'pangloss/vim-javascript'
 call vundle#end()
 " Enable file type plugins
 filetype plugin on
@@ -167,3 +169,11 @@ endfunction
 autocmd BufNewFile *.{h,hpp} call <SID>insert_guards()
 " Make ctrl-f directly available
 map <leader>f <esc>:<c-f>
+let g:hardtime_default_on = 1
+let g:hardtime_timeout = 8000
+let g:hardtime_showmsg = 1
+let g:hardtime_maxcount = 2
+let g:hardtime_allow_different_key = 1
+let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x", "w", "b", "dd"]
+" Plugin settings: vim-javascript
+let g:javascript_plugin_jsdoc = 1
