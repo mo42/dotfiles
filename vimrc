@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'takac/vim-hardtime'
 Plugin 'pangloss/vim-javascript'
+Plugin 'posva/vim-vue'
 call vundle#end()
 " Enable file type plugins
 filetype plugin on
@@ -174,6 +175,7 @@ let g:hardtime_timeout = 8000
 let g:hardtime_showmsg = 1
 let g:hardtime_maxcount = 2
 let g:hardtime_allow_different_key = 1
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x", "w", "b", "dd"]
+let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x"]
+let g:list_of_normal_keys += ["w", "b", "dd", ";;"]
 " Plugin settings: vim-javascript
 let g:javascript_plugin_jsdoc = 1

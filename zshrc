@@ -293,6 +293,15 @@ mvmp3() {
   umount /mnt/usb/
 }
 
+jsonparse() {
+  cat $1 | python -c "import sys,json;json.loads(sys.stdin.read())"
+}
+
+pdfsplit() {
+  gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=$2 -dLastPage=$3 \
+    -sOutputFile="${1%%.*}_$2_$3".pdf $1
+}
+
 # Colored prompt
 if [[ "$UID" == "0" ]]; then
   PROMPT="%{$fg_bold[red]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
