@@ -77,6 +77,11 @@ setopt auto_param_slash
 # Avoid false reports of spelling errors
 setopt hash_list_all
 
+# Most frequently used commands
+alias v='vim'
+alias m='mutt'
+alias t='task'
+
 # Frequently used files
 alias vrc='$EDITOR ~/.vimrc'
 alias zrc='$EDITOR ~/.zshrc'
