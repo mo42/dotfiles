@@ -265,6 +265,7 @@ dotsync() {
   ln -sf $dir/taskrc ~/.taskrc
   ln -sf $dir/Xresources ~/.Xresources
   ln -sf $dir/Xmodmap ~/.Xmodmap
+  ln -sf $dir/vimpcrc ~/.vimpcrc
   source ~/.zshrc
   popd
 }
