@@ -69,6 +69,7 @@ else
   set background=dark
 endif
 color molokai
+let g:rehash256 = 1
 " Default encoding
 set encoding=utf8
 " Enable undoing and disable backup and swap files
@@ -122,7 +123,7 @@ autocmd BufWrite * :set ff=unix
 " Visually wrap long lines
 set wrap
 " Number of line above and below the cursor
-set scrolloff=5
+set scrolloff=0
 " Define leader key
 let mapleader=","
 " Fast file saving
@@ -170,6 +171,7 @@ endfunction
 autocmd BufNewFile *.{h,hpp} call <SID>insert_guards()
 " Make ctrl-f directly available
 map <leader>f <esc>:<c-f>
+map <leader>e <esc>:e<space>
 let g:hardtime_default_on = 1
 let g:hardtime_timeout = 8000
 let g:hardtime_showmsg = 1
