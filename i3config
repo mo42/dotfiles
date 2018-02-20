@@ -119,12 +119,12 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 
 bindsym $mod+c exec qutebrowser
-bindsym $mod+n exec urxvt -e ncmpcpp
+bindsym $mod+n exec urxvt -e vimpc
 bindsym $mod+o exec i3lock -c 000000
 
 # Gaps
-gaps inner 9
+gaps inner 12
 gaps outer 0
 smart_gaps on
 
-new_window pixel 2
+new_window pixel 0
