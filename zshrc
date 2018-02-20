@@ -106,6 +106,7 @@ alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias isync='mbsync -aX'
 alias pdflatex='pdflatex --shell-escape'
+alias c='cd'
 alias ..='cd ..'
 alias ...='cd ..; cd ..'
 alias ....='cd ..; cd ..; cd ..'
@@ -129,7 +130,9 @@ alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
 alias trailspace='grep -n "\s$"'
+alias g='git'
 alias gd='git diff'
+alias gitg='gitg > /dev/null 2>&1 &'
 
 alias unison='unison -logfile .unison/logfile'
 alias i3lock='i3lock -c 000000'
@@ -313,3 +316,5 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
+
+source ~/.zsh_extra
