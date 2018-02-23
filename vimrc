@@ -185,3 +185,6 @@ let g:javascript_plugin_flow = 1
 let g:ale_fixers = { 'javascript': ['eslint'], }
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
+
+iab teh the
+iab tath that
