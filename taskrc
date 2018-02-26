@@ -5,6 +5,7 @@ rc.dateformat=y-m-d h:n
 weekstart=Monday
 displayweeknumber=yes
 calendar.holidays=none
+locking=on
 
 urgency.next.coefficient      =  12.0
 urgency.waiting.coefficient   = -10.0

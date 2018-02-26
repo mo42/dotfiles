@@ -311,6 +311,11 @@ pdfsplit() {
     -sOutputFile="${1%%.*}_$2_$3".pdf $1
 }
 
+# Modify dependencies of tasks (first argument depends on seconds argument(s))
+taskdepends() {
+  task $1 modify depends:$2
+}
+
 # Colored prompt
 if [[ "$UID" == "0" ]]; then
   PROMPT="%{$fg_bold[red]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "

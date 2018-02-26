@@ -9,6 +9,8 @@ Plugin 'takac/vim-hardtime'
 Plugin 'pangloss/vim-javascript'
 Plugin 'posva/vim-vue'
 Plugin 'w0rp/ale'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 " Enable file type plugins
 filetype plugin on
@@ -185,6 +187,9 @@ let g:javascript_plugin_flow = 1
 let g:ale_fixers = { 'javascript': ['eslint'], }
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
-
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" Abbreviations
 iab teh the
 iab tath that
