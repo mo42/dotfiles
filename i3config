@@ -53,28 +53,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1:work
-bindsym $mod+2 workspace 2:work
+bindsym $mod+1 workspace 1:web
+bindsym $mod+2 workspace 2:task
 bindsym $mod+3 workspace 3:work
-bindsym $mod+4 workspace 4:comm
-bindsym $mod+5 workspace 5:root
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
+bindsym $mod+4 workspace 4:work
+bindsym $mod+5 workspace 5:com
+bindsym $mod+6 workspace 6:root
+bindsym $mod+7 workspace 7:music
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace 0
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:work
-bindsym $mod+Shift+2 move container to workspace 2:work
+bindsym $mod+Shift+1 move container to workspace 1:web
+bindsym $mod+Shift+2 move container to workspace 2:task
 bindsym $mod+Shift+3 move container to workspace 3:work
-bindsym $mod+Shift+4 move container to workspace 4:comm
-bindsym $mod+Shift+5 move container to workspace 5:root
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+4 move container to workspace 4:work
+bindsym $mod+Shift+5 move container to workspace 5:com
+bindsym $mod+Shift+6 move container to workspace 6:root
+bindsym $mod+Shift+7 move container to workspace 7:music
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace 0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -118,7 +118,20 @@ client.urgent  #aa0000 #990000 #ffffff
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 
-bindsym $mod+c exec qutebrowser
+exec --no-startup-id i3-msg 'workspace 1:web; exec /usr/bin/firefox'
+
+exec --no-startup-id i3-msg 'workspace 2:task; exec urxvt -e task ready'
+
+exec --no-startup-id i3-msg 'workspace 4:com; exec urxvt -e mutt'
+exec --no-startup-id i3-msg 'workspace 4:com; exec pidgin -n'
+
+exec 'mpd'
+exec --no-startup-id i3-msg 'workspace 6:music; exec urxvt -e vis'
+exec --no-startup-id i3-msg 'workspace 6:music; exec urxvt -e vimpc'
+
+exec 'parcellite'
+
+bindsym $mod+c exec firefox
 bindsym $mod+n exec urxvt -e vimpc
 bindsym $mod+o exec i3lock -c 000000
 

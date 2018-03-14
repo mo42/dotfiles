@@ -81,6 +81,7 @@ setopt hash_list_all
 alias v='vim'
 alias m='mutt'
 alias t='task'
+alias l='ls'
 
 # Frequently used files
 alias vrc='$EDITOR ~/.vimrc'
@@ -90,6 +91,8 @@ alias led='$EDITOR ~/ledger.dat'
 # Task aliases
 alias te='task edit'
 alias ta='task add'
+# Collect my ideas and review on Saturday
+alias tai='task add due:saturday wait:saturday'
 if [[ -x `which task` ]]; then
   alias cal='task calendar'
 else
