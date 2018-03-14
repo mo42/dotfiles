@@ -122,12 +122,12 @@ exec --no-startup-id i3-msg 'workspace 1:web; exec /usr/bin/firefox'
 
 exec --no-startup-id i3-msg 'workspace 2:task; exec urxvt -e task ready'
 
-exec --no-startup-id i3-msg 'workspace 4:com; exec urxvt -e mutt'
-exec --no-startup-id i3-msg 'workspace 4:com; exec pidgin -n'
+exec --no-startup-id i3-msg 'workspace 5:com; exec urxvt -e mutt'
+exec --no-startup-id i3-msg 'workspace 5:com; exec pidgin -n'
 
 exec 'mpd'
-exec --no-startup-id i3-msg 'workspace 6:music; exec urxvt -e vis'
-exec --no-startup-id i3-msg 'workspace 6:music; exec urxvt -e vimpc'
+exec --no-startup-id i3-msg 'workspace 7:music; exec urxvt -e vis'
+exec --no-startup-id i3-msg 'workspace 7:music; exec urxvt -e vimpc'
 
 exec 'parcellite'
 
