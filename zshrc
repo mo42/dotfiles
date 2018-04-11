@@ -135,6 +135,8 @@ alias gdb='gdb -tui'
 alias trailspace='grep -n "\s$"'
 alias g='git'
 alias gd='git diff'
+alias gst='git status'
+alias gco='git commit'
 alias gitg='gitg > /dev/null 2>&1 &'
 
 alias unison='unison -logfile .unison/logfile'
@@ -325,5 +327,3 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
-
-source ~/.zsh_extra
