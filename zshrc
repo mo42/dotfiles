@@ -4,7 +4,7 @@ export LC_ALL=en_US.UTF8
 export EDITOR=vim
 export TERM=xterm-256color
 eval $(dircolors -b $HOME/.dircolors)
-export OS_RELEASE_ID=`cat /etc/*-release | sed -n '/^ID=/p' | cut -d '"' -f2`
+export OS_RELEASE_ID=`cat /etc/os-release | sed -n '/^ID=/p' | sed 's/^...//'`
 
 if [ -d "$HOME/bin" ]; then
   export PATH=$HOME/bin:$PATH
@@ -77,17 +77,11 @@ setopt auto_param_slash
 # Avoid false reports of spelling errors
 setopt hash_list_all
 
-# Most frequently used commands
-alias v='vim'
-alias m='mutt'
-alias t='task'
-alias l='ls'
-
 # Frequently used files
 alias vrc='$EDITOR ~/.vimrc'
 alias zrc='$EDITOR ~/.zshrc'
 alias mrc='$EDITOR ~/.mutt/muttrc'
-alias led='$EDITOR ~/ledger.dat'
+alias led='$EDITOR ~/.ledger'
 # Task aliases
 alias te='task edit'
 alias ta='task add'
@@ -99,7 +93,7 @@ else
   alias cal='cal -nw'
 fi
 alias tb='task burndown'
-alias tt='task ready'
+alias tr='task ready'
 alias td='task done'
 
 alias ls='ls --color=always'
@@ -109,17 +103,13 @@ alias bal='ledger -f ~/ledger.dat bal'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias isync='mbsync -aX'
 alias pdflatex='pdflatex --shell-escape'
-alias c='cd'
 alias ..='cd ..'
 alias ...='cd ..; cd ..'
-alias ....='cd ..; cd ..; cd ..'
 alias du='du -h'
 alias df='df -h'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
-alias acp='rsync --archive --progress'
-
 alias cdd='cd ~/downloads'
 
 # Modify file names in vim
@@ -127,42 +117,27 @@ alias vimv='qmv -f do'
 alias zsrc='source ~/.zshrc'
 # Development
 alias makeless='make 2>&1 | less -r'
-alias mc='make clean'
-alias med='vim Makefile'
 alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
-alias trailspace='grep -n "\s$"'
-alias g='git'
 alias gd='git diff'
 alias gst='git status'
 alias gco='git commit'
 alias gitg='gitg > /dev/null 2>&1 &'
-
 alias unison='unison -logfile .unison/logfile'
 alias i3lock='i3lock -c 000000'
 
 if [[ "$UID" == "0" ]]; then
   # Root's aliases
-  alias bmount='mount /dev/sdb1 /mnt/usb/'
-  alias bumount='umount /mnt/usb'
-  if [[ -x `which pacman` ]]; then
+  if [[ "$OS_RELEASE_ID" == "arch" ]]; then
     alias sysupdate='pacman --color always -Syu && pacman -Scc'
     alias pacdeb='pacman --color always -R $(pacman -Qtdq)'
     alias pacman='pacman --color always'
-  elif [[ -x `which emerge` ]]; then
-    alias sysupdate='emerge --sync && emerge -uDU --with-bdeps=y @world'
-  elif [[ -x `which apt-get` ]]; then
-    alias sysupdate='apt-get update && apt-get update && apt-get upgrade && apt-get clean'
-  elif [[ "$OS_RELEASE_ID" == "void" ]]; then
-    alias sysupdate='xbps-install -Su'
   fi
 else
   # User's aliases
-  if [[ -x `which pacman` ]]; then
+  if [[ "$OS_RELEASE_ID" == "arch" ]]; then
     alias susp='i3lock -c 000000 & systemctl suspend'
-  elif [[ "$OS_RELEASE_ID" == "void" ]]; then
-    alias susp='i3lock -c 000000 & sudo zzz'
   fi
 fi
 
@@ -203,11 +178,6 @@ extr() {
   else
     printf 'Error: can not handle file '$1'.'
   fi
-}
-
-# Find files by name
-fnd() {
-  find . -iname "*$1*"
 }
 
 # Open PDF files
@@ -275,31 +245,6 @@ dotsync() {
   popd
 }
 
-# Do something for each file in the directory
-forall() {
-  for f in `ls`; do
-    $@ $f
-  done
-}
-
-# Fix permissions
-pfix() {
-  find . -type d -exec chmod 775 {} \;
-  find . -type f -exec chmod 664 {} \;
-}
-
-# Clean generated files
-clean() {
-  find . -name '*.o' -print -exec rm {} \;
-  find . -name '*.pyc' -print -exec rm {} \;
-}
-
-texclean() {
-  rm -rf *.aux
-  rm -rf *.log
-  rm -rf *.out
-}
-
 mvmp3() {
   mount /dev/sdc1 /mnt/usb
   rm /mnt/usb/*.mp3
@@ -327,3 +272,5 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
+
+source ~/.zsh_extra
