@@ -273,4 +273,4 @@ else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
 
-source ~/.zsh_extra
+source ~/.zsh/extra.zsh
