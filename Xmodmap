@@ -20,3 +20,4 @@
  keycode 57 = n N ntilde Ntilde
  keycode 58 = m M Multi_key
  keycode 66 = Mode_switch Multi_key
+ pointer = 1 2 3 5 4 7 6
