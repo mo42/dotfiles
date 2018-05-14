@@ -18,4 +18,4 @@ inspirational source though.
 * `.Xdefaults`
 * `.Xresources`
 * `.Xmodmap`
-* qutebrowserconfig
+* `.latexmkrc`
