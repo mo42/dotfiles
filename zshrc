@@ -82,11 +82,13 @@ alias vrc='$EDITOR ~/.vimrc'
 alias zrc='$EDITOR ~/.zshrc'
 alias mrc='$EDITOR ~/.mutt/muttrc'
 alias led='$EDITOR ~/.ledger'
+
 # Task aliases
 alias te='task edit'
 alias ta='task add'
 # Collect my ideas and review on Saturday
 alias tai='task add due:saturday wait:saturday'
+
 if [[ -x `which task` ]]; then
   alias cal='task calendar'
 else
