@@ -163,7 +163,7 @@ map <c-m> :make<cr>
 set path+=**
 " Enable spell checking
 set spell
-set spelllang=de
+set spelllang=en
 function! s:insert_guards()
   let guardname = substitute(toupper(expand("%:t")), "\\.", "_", "g")
   execute "normal! i#ifndef " . guardname
@@ -175,7 +175,7 @@ autocmd BufNewFile *.{h,hpp} call <SID>insert_guards()
 " Make ctrl-f directly available
 map <leader>f <esc>:<c-f>
 map <leader>e <esc>:e<space>
-let g:hardtime_default_on = 1
+let g:hardtime_default_on = 0
 let g:hardtime_timeout = 8000
 let g:hardtime_showmsg = 1
 let g:hardtime_maxcount = 2
@@ -219,6 +219,7 @@ call matchadd('badWordsGroup', '\cgar ')
 call matchadd('badWordsGroup', '\cgenau ')
 call matchadd('badWordsGroup', '\cgerade')
 call matchadd('badWordsGroup', '\chalt ')
+call matchadd('badWordsGroup', '\chauptsächlich')
 call matchadd('badWordsGroup', '\cimmerhin ')
 call matchadd('badWordsGroup', '\cjedenfalls ')
 call matchadd('badWordsGroup', '\cjedoch ')
@@ -226,6 +227,7 @@ call matchadd('badWordsGroup', '\ckonkret ')
 call matchadd('badWordsGroup', '\clediglich ')
 call matchadd('badWordsGroup', '\cletztere ')
 call matchadd('badWordsGroup', '\cletztlich ')
+call matchadd('badWordsGroup', '\cmach')
 call matchadd('badWordsGroup', '\cnatürlich ')
 call matchadd('badWordsGroup', '\cnormalerweise ')
 call matchadd('badWordsGroup', '\cnun ')
@@ -236,7 +238,7 @@ call matchadd('badWordsGroup', '\cprofund ')
 call matchadd('badWordsGroup', '\cprozess des ')
 call matchadd('badWordsGroup', '\cschließlich ')
 call matchadd('badWordsGroup', '\cschon ')
-call matchadd('badWordsGroup', '\csehr ')
+call matchadd('badWordsGroup', '\csehr')
 call matchadd('badWordsGroup', '\cselbstverständlich ')
 call matchadd('badWordsGroup', '\csicherlich ')
 call matchadd('badWordsGroup', '\cso ')
@@ -256,4 +258,5 @@ call matchadd('badWordsGroup', '\cwohl ')
 call matchadd('badWordsGroup', '\cüberhaupt ')
 call matchadd('badWordsGroup', '\cüberwiegend ')
 call matchadd('badWordsGroup', '\cüblicherweise ')
+
 
