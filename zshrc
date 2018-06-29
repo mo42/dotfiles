@@ -86,18 +86,18 @@ alias led='$EDITOR ~/.ledger'
 # Task aliases
 alias te='task edit'
 alias ta='task add'
+alias tb='task burndown'
+alias tr='task ready'
+alias td='task done'
+alias ts='task start'
 # Collect my ideas and review on Saturday
-alias tai='task add due:saturday wait:saturday'
+alias ii='task add due:saturday wait:saturday'
 
 if [[ -x `which task` ]]; then
   alias cal='task calendar'
 else
   alias cal='cal -nw'
 fi
-alias tb='task burndown'
-alias tr='task ready'
-alias td='task done'
-alias ts='task start'
 
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
@@ -193,60 +193,6 @@ pdf() {
   fi
 }
 
-# Sync all dot files
-dotsync() {
-  local dir=~/dotfiles
-  pushd
-  if [[ -d $dir ]]; then
-    cd $dir
-    git pull
-  else
-    git clone git://github.com/mo42/dotfiles $dir
-    cd ~/dotfiles
-  fi
-  ln -sf $dir/abcde.conf ~/.abcde.conf
-  ln -sf $dir/gitignore ~/.gitignore
-  ln -sf $dir/vimrc ~/.vimrc
-  ln -sf $dir/vrapperrc ~/.vrapperrc
-  ln -sf $dir/xinitrc ~/.xinitrc
-  ln -sf $dir/zlogin ~/.zlogin
-  ln -sf $dir/zshrc ~/.zshrc
-  ln -sf $dir/i3status.conf ~/.i3status.conf
-  if [[ -d ~/.config/newsbeuter ]]; then
-    ln -sf $dir/newsbeuterconfig ~/.config/newsbeuter/config
-  else
-    mkdir ~/.config/i3
-    ln -sf $dir/newsbeuterconfig ~/.config/newsbeuter/config
-  fi
-  if [[ -d ~/.config/i3 ]]; then
-    ln -sf $dir/i3config ~/.config/i3/config
-  else
-    mkdir ~/.config/i3
-    ln -sf $dir/i3config ~/.config/i3/config
-  fi
-  if [[ -d ~/.mutt ]]; then
-    ln -sf $dir/muttrc ~/.mutt/muttrc
-  else
-    mkdir ~/.mutt
-    ln -sf $dir/muttrc ~/.mutt/muttrc
-  fi
-  if [[ -d ~/.config/qutebrowser ]]; then
-    ln -sf $dir/qutebrowserconfig.yml
-  else
-    mkdir ~/.config/qutebrowser
-    ln -sf $dir/qutebrowserconfig.yml
-  fi
-  ln -sf $dir/mpd.conf ~/.mpd.conf
-  ln -sf $dir/Xdefaults ~/.Xdefaults
-  ln -sf $dir/dircolors ~/.dircolors
-  ln -sf $dir/taskrc ~/.taskrc
-  ln -sf $dir/Xresources ~/.Xresources
-  ln -sf $dir/Xmodmap ~/.Xmodmap
-  ln -sf $dir/vimpcrc ~/.vimpcrc
-  source ~/.zshrc
-  popd
-}
-
 mvmp3() {
   mount /dev/sdc1 /mnt/usb
   rm /mnt/usb/*.mp3
@@ -288,5 +234,3 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
-
-source ~/.zsh/extra.zsh
