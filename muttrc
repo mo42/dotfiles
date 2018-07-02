@@ -76,10 +76,7 @@ set menu_context=7
 # Load GPG options
 source /usr/share/doc/mutt/samples/gpg.rc
 
-# Put some information into the header
-my_hdr User-Agent: `mutt -v | head -1`
-
-macro index,pager A "<save-message>=mo42/archive/<enter>" "archive messages"
+macro index,pager a "<save-message>=mo42/archive/<enter>" "archive messages"
 
 bind index '{'      previous-thread
 bind index '}'      next-thread
@@ -88,14 +85,15 @@ bind index G        last-entry
 bind index R        group-reply
 bind index <space>  collapse-thread
 
-macro index O "<shell-escape>mbsync -aX<enter>" "run mbsync to sync all mail"
+macro index 'O' "<shell-escape>mbsync -aX<enter>" "run mbsync to sync all mail"
 # Change folders quickly
-macro index 'M' <change-folder>~/.maildir/mo42/inbox<enter>
-macro index 'I' <change-folder>~/.maildir/inf/inbox<enter>
+macro index I <change-folder>~/.maildir/mo42/inbox<enter>
+macro index S <change-folder>~/.maildir/mo42/sent<enter>
+#macro index a <change-folder>~/.maildir/mo42/archive<enter>
 
 # Addresses
 set query_command="abook --mutt-query '%s'"
-macro index,pager a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
 bind editor <tab> complete-query
 
 # Color settings
