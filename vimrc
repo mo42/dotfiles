@@ -171,10 +171,16 @@ function! s:insert_guards()
   execute "normal! Go#endif /* " . guardname . " */"
   normal! ko
 endfunction
-autocmd BufNewFile *.{h,hpp} call <SID>insert_guards()
+autocmd BufNewFile *.{h,hpp} call <sid>insert_guards()
 " Make ctrl-f directly available
 map <leader>f <esc>:<c-f>
 map <leader>e <esc>:e<space>
+" Disable line numbering for copying content
+map <leader>n :call NoNumber()<cr>
+function NoNumber()
+  set nonumber
+  set norelativenumber
+endfunction
 let g:hardtime_default_on = 0
 let g:hardtime_timeout = 8000
 let g:hardtime_showmsg = 1
@@ -258,5 +264,4 @@ call matchadd('badWordsGroup', '\cwohl ')
 call matchadd('badWordsGroup', '\cüberhaupt ')
 call matchadd('badWordsGroup', '\cüberwiegend ')
 call matchadd('badWordsGroup', '\cüblicherweise ')
-
 
