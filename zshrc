@@ -109,6 +109,8 @@ alias ..='cd ..'
 alias ...='cd ..; cd ..'
 alias du='du -h'
 alias df='df -h'
+alias i3lock='i3lock -c 000000'
+
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
@@ -117,6 +119,7 @@ alias cdd='cd ~/downloads'
 # Modify file names in vim
 alias vimv='qmv -f do'
 alias zsrc='source ~/.zshrc'
+
 # Development
 alias makeless='make 2>&1 | less -r'
 alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
@@ -126,8 +129,8 @@ alias gd='git diff'
 alias gst='git status'
 alias gco='git commit'
 alias gitg='gitg > /dev/null 2>&1 &'
-alias unison='unison -logfile .unison/logfile'
-alias i3lock='i3lock -c 000000'
+alias todogrep='grep -Rli "todo\|fixme"'
+
 
 if [[ "$UID" == "0" ]]; then
   # Root's aliases
