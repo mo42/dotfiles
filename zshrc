@@ -176,6 +176,7 @@ extr() {
       (*.rar)               unrar e $1;;
       (*.tar)               tar -xvf $1;;
       (*.tar.xz)            tar -xJf $1;;
+      (*.7z)                7z e $1;;
     esac
   else
     printf 'Error: can not handle file '$1'.'
