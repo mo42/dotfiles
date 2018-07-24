@@ -10,9 +10,6 @@ set sleep_time=0
 set tilde
 # Aligns with text
 set attribution="* %f %d:"
-# Specifiy type and location of the mails
-set mbox_type=Maildir
-set folder="~/.maildir/"
 # View HTML mails
 auto_view text/html
 alternative_order text/plain text/enriched text/html
@@ -128,3 +125,7 @@ color body        color39     color233 "(ftp|http|https)://[^ >]*"
 color body        color39     color233 "<URL:[^ ]*>"
 color body        brightred   color233 "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"
 
+# Check for new mail every 30 minutes
+set mail_check=1800
+# Abort if the message body contains hints that there should be an attachment
+set abort_noattach_regexp="attach|anhang"

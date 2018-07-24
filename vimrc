@@ -11,6 +11,7 @@ Plugin 'posva/vim-vue'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'chrisbra/csv.vim'
 call vundle#end()
 " Enable file type plugins
 filetype plugin on
