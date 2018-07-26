@@ -1,0 +1,4 @@
+" Change mode quickly
+inoremap jk <esc>
+" Search while typing
+set incsearch

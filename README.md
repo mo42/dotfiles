@@ -9,6 +9,7 @@ inspirational source though.
 * `.gitignore`
 * `.vimrc`
 * `.vrapperrc`
+* `.ideavimrc`
 * `.xinitrc`
 * `.zlogin`
 * `.zshrc`

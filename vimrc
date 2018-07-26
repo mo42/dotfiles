@@ -265,4 +265,6 @@ call matchadd('badWordsGroup', '\cwohl ')
 call matchadd('badWordsGroup', '\cüberhaupt ')
 call matchadd('badWordsGroup', '\cüberwiegend ')
 call matchadd('badWordsGroup', '\cüblicherweise ')
-
+" English bad words
+call matchadd('badWordsGroup', '\calso ')
+call matchadd('badWordsGroup', '\caspect')
