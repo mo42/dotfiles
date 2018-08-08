@@ -92,6 +92,7 @@ alias td='task done'
 alias ts='task start'
 # Collect my ideas and review on Saturday
 alias ii='task add due:saturday wait:saturday'
+alias buy='task add project:buy'
 
 if [[ -x `which task` ]]; then
   alias cal='task calendar'

@@ -137,6 +137,8 @@ nnoremap <leader>h :help
 noremap <leader>q :q<cr>
 " Repeat last colon command
 map <leader>. @:
+" Remove trailing white space
+map <leader>s :%s/\s\+$//e<cr>
 " Show end of lines
 set colorcolumn=80
 " Always show status line
