@@ -23,7 +23,9 @@ macro pager \cb '|urlview\n' 'call urlview to extract URLs'
 set smart_wrap
 unset markers
 # Specifiy forward format (see attribution) and add message to body
-set forward_format="/ %f %d:
+set forward_format="Fwd: %s"
+set forward_attribution_intro="/ %f %d:"
+set forward_attribution_trailer=""
 set forward_quote
 # 
 set editor="vim"

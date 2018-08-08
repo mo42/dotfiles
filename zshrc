@@ -144,6 +144,9 @@ else
   if [[ "$OS_RELEASE_ID" == "arch" ]]; then
     alias susp='i3lock -c 000000 & systemctl suspend'
   fi
+  if [[ "$OS_RELEASE_ID" == "ubuntu" ]]; then
+    alias python='python3'
+  fi
 fi
 
 autoload -U colors && colors
