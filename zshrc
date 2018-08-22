@@ -28,7 +28,7 @@ bindkey -M vicmd 'j' history-beginning-search-forward
 bindkey -M viins 'jk' vi-cmd-mode
 # Perform history expansion (prefix "!", "^")
 bindkey -M viins ' ' magic-space
-# Clear the prompt. After running a new command it restores the first prompt.
+# Clear the prompt and restore after running another command.
 bindkey -M vicmd "q" push-line
 # Incremental search
 bindkey -M vicmd "/" history-incremental-search-forward
@@ -91,7 +91,7 @@ alias tr='task ready'
 alias td='task done'
 alias ts='task start'
 # Collect my ideas and review on Saturday
-alias ii='task add due:saturday wait:saturday'
+alias ii='task add due:saturday wait:saturday project:inbox'
 alias buy='task add project:buy'
 
 if [[ -x `which task` ]]; then
@@ -131,7 +131,7 @@ alias gst='git status'
 alias gco='git commit'
 alias gitg='gitg > /dev/null 2>&1 &'
 alias todogrep='grep -Rli "todo\|fixme"'
-
+alias texclear='rm -f *.{aux,bbl,blg,log}'
 
 if [[ "$UID" == "0" ]]; then
   # Root's aliases
