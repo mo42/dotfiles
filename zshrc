@@ -94,7 +94,8 @@ alias ts='task start'
 alias ii='task add due:saturday wait:saturday project:inbox'
 alias buy='task add project:buy'
 # Wait until tomorrow
-alias ttm='task modify wait:tomorrow'
+alias ttt='task modify wait:tomorrow'
+alias ttm='task modify wait:monday'
 
 if [[ -x `which task` ]]; then
   alias cal='task calendar'
@@ -133,7 +134,7 @@ alias gst='git status'
 alias gco='git commit'
 alias gitg='gitg > /dev/null 2>&1 &'
 alias todogrep='grep -Rli "todo\|fixme"'
-alias texclean='rm -f *.{aux,bbl,blg,log,dvi,fdb_latexmk,fls}'
+alias texclean='rm -f *.{aux,bbl,blg,log,fls}'
 
 if [[ "$UID" == "0" ]]; then
   # Root's aliases
