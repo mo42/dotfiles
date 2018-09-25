@@ -150,6 +150,7 @@ else
   fi
   if [[ "$OS_RELEASE_ID" == "ubuntu" ]]; then
     alias python='python3'
+    alias pip='pip3'
   fi
 fi
 
