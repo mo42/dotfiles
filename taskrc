@@ -1,5 +1,5 @@
 data.location=~/.config/task
-include /usr/share/doc/task/rc/dark-256.theme
+include /usr/share/task/dark-256.theme
 include ~/dotfiles/task.theme
 rc.dateformat=y-m-d h:n
 weekstart=Monday

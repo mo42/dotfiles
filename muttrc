@@ -78,7 +78,7 @@ set pgp_use_gpg_agent=yes
 set menu_context=7
 
 # Load GPG options
-source /usr/share/doc/mutt/samples/gpg.rc
+source /usr/share/doc/mutt/gpg.rc
 
 macro index,pager a "<save-message>=mo42/archive/<enter>" "archive messages"
 
@@ -136,3 +136,6 @@ color body        brightred   color233 "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"
 set mail_check=1800
 # Abort if the message body contains hints that there should be an attachment
 set abort_noattach_regexp="attach|anhang"
+# Ask for CC and BCC
+set askcc=yes
+set askbcc=yes

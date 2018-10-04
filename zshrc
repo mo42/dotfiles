@@ -152,6 +152,11 @@ else
     alias python='python3'
     alias pip='pip3'
   fi
+  if [[ "$OS_RELEASE_ID" == "fedora" ]]; then
+    alias python='python3'
+    alias pip='pip3'
+    alias vim='gvim'
+  fi
 fi
 
 autoload -U colors && colors
