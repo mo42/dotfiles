@@ -8,10 +8,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'takac/vim-hardtime'
 Plugin 'pangloss/vim-javascript'
 Plugin 'posva/vim-vue'
-Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'chrisbra/csv.vim'
+Plugin 'dhruvasagar/vim-table-mode'
 call vundle#end()
 " Enable file type plugins
 filetype plugin on
@@ -275,6 +274,7 @@ call matchadd('badWordsGroup', '\caspect')
 call matchadd('badWordsGroup', '\cimportant role')
 call matchadd('badWordsGroup', '\cin fact')
 call matchadd('badWordsGroup', '\cprove')
+call matchadd('badWordsGroup', '\cseveral')
 call matchadd('badWordsGroup', '\csome ')
 call matchadd('badWordsGroup', '\csometimes')
 call matchadd('badWordsGroup', '\csuppose')
