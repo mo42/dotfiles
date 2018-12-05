@@ -2,3 +2,4 @@
 inoremap jk <esc>
 " Search while typing
 set incsearch
+set relativenumber

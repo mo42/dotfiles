@@ -12,6 +12,9 @@ fi
 if [ -d "$HOME/.cabal/bin" ]; then
   export PATH=$HOME/.cabal/bin:$PATH
 fi
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH=$HOME/.local/bin:$PATH
+fi
 # Space before | and & after completion
 export ZLE_SPACE_SUFFIX_CHARS=$'|&'
 
@@ -95,6 +98,7 @@ alias ii='task add due:saturday wait:saturday project:inbox'
 alias buy='task add project:buy'
 # Wait until tomorrow
 alias ttt='task modify wait:tomorrow'
+# Wait until next Monday
 alias ttm='task modify wait:monday'
 
 if [[ -x `which task` ]]; then
@@ -103,6 +107,7 @@ else
   alias cal='cal -nw'
 fi
 
+alias xo='xdg-open'
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
 alias grep='grep --color=auto'
@@ -153,9 +158,9 @@ else
     alias pip='pip3'
   fi
   if [[ "$OS_RELEASE_ID" == "fedora" ]]; then
+    alias susp='i3lock -c 000000 & sudo systemctl suspend'
     alias python='python3'
     alias pip='pip3'
-    alias vim='gvim'
   fi
 fi
 
@@ -170,6 +175,8 @@ zstyle ':completion:*' select-prompt ''
 zstyle ':completion:*:*:(|g)vi(|m):*' ignored-patterns '*.(pdf|ps)'
 # Fix completion for the pdf function below
 zstyle ':completion:*:*:pdf:*' file-patterns '*(-/):directories *.(pdf|ps)'
+# Completion for TeX files
+zstyle ':completion:*:*:(pdf|lua)latex:*' file-patterns '*(-/):directories *.tex'
 # Enable colors for completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
