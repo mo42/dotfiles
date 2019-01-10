@@ -93,6 +93,7 @@ alias tb='task burndown'
 alias tr='task ready'
 alias td='task done'
 alias ts='task start'
+alias tw='task waiting'
 # Collect my ideas and review on Saturday
 alias ii='task add due:saturday wait:saturday project:inbox'
 alias buy='task add project:buy'

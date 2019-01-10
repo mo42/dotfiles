@@ -94,9 +94,6 @@ set tabstop=2
 set textwidth=78 
 " Automatically indent next line
 set autoindent
-" Move normally on long lines
-map j gj
-map k gk
 " Allow unsaved buffers
 set hidden
 " Change mode quickly
