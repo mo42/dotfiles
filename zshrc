@@ -108,7 +108,6 @@ else
   alias cal='cal -nw'
 fi
 
-alias xo='xdg-open'
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
 alias grep='grep --color=auto'

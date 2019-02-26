@@ -1,6 +1,6 @@
-URxvt.saveLines: 1000
-URxvt.scrollBar: false
-URxvt.foreground: white
-URxvt.background: black
-URxvt.font: xft:Liberation Mono:pixelsize=18:antialias=true:hinting=true
-URxvt.cursorBlink: 0
+*saveLines: 1000
+XTerm*scrollBar: false
+*foreground: white
+*background: black
+*font: xft:Liberation Mono:pixelsize=18:antialias=true:hinting=true
+*cursorBlink: 0
