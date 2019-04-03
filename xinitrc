@@ -1,9 +1,11 @@
 #!/bin/zsh
-xrdb ~/.Xresources &
+
+xrdb -merge ~/.Xdefaults &
 redshift-gtk -l 52:13 &
-if [[ "OS_RELEASE_ID" == "fedora" ]]; then
+xmodmap ~/.Xmodmap
+xrandr --output eDP-1 --primary --mode 1600x900
+if [[ $OS_RELEASE_ID == "fedora" ]]; then
   sh /etc/X11/xinit/xinitrc &
   xsetroot -solid "#333333" &
 fi
-xmodmap ~/.Xmodmap
 exec i3
