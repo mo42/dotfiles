@@ -101,6 +101,7 @@ alias buy='task add project:buy'
 alias ttt='task modify wait:tomorrow'
 # Wait until next Monday
 alias ttm='task modify wait:monday'
+alias tts='task modify wait:saturday'
 
 if [[ -x `which task` ]]; then
   alias cal='task calendar'
