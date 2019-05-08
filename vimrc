@@ -184,10 +184,10 @@ function NoNumber()
   set nonumber
   set norelativenumber
 endfunction
-let g:hardtime_default_on = 0
+let g:hardtime_default_on = 1
 let g:hardtime_timeout = 8000
 let g:hardtime_showmsg = 1
-let g:hardtime_maxcount = 2
+let g:hardtime_maxcount = 4
 let g:hardtime_allow_different_key = 1
 let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x"]
 let g:list_of_normal_keys += ["w", "b", "dd"]
@@ -203,3 +203,20 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " Abbreviations
 iab teh the
 iab tath that
+" Cycle through spell checkers
+nnoremap <leader>l :call CycleSpellLanguage()<cr>
+let g:current_spell_language = 'en_us'
+function CycleSpellLanguage()
+  let languages = ['', 'en_us', 'de', 'es']
+  let i = index(languages, g:current_spell_language)
+  let j = (i + 1) % len(languages)
+  let g:current_spell_language = languages[j]
+  if empty(g:current_spell_language)
+    set nospell
+    echo 'No spell language'
+  else
+    set spell
+    let spelllang=g:current_spell_language
+    echo 'Current spell language ' . g:current_spell_language
+  endif
+endfunction
