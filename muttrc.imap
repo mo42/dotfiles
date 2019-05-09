@@ -4,6 +4,10 @@ set realname="John Doe"
 set from="john@example.com"
 # The IMAP password
 set imap_pass="verysecretpassword"
+set smtp_pass="verysecretpassword"
+# Or
+set imap_pass=`pass path/to/password/file`
+set smtp_pass=`pass path/to/password/file`
 # The IMAP user name
 set imap_user="john"
 set smtp_url="smtp://smtp.example.com:25"
