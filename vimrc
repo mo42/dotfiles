@@ -207,7 +207,7 @@ iab tath that
 nnoremap <leader>l :call CycleSpellLanguage()<cr>
 let g:current_spell_language = 'en_us'
 function CycleSpellLanguage()
-  let languages = ['', 'en_us', 'de', 'es']
+  let languages = ['', 'en_us', 'de_de', 'es_es']
   let i = index(languages, g:current_spell_language)
   let j = (i + 1) % len(languages)
   let g:current_spell_language = languages[j]
@@ -216,7 +216,7 @@ function CycleSpellLanguage()
     echo 'No spell language'
   else
     set spell
-    let spelllang=g:current_spell_language
+    let &spelllang=g:current_spell_language
     echo 'Current spell language ' . g:current_spell_language
   endif
 endfunction
