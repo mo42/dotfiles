@@ -9,12 +9,12 @@ set sleep_time=0
 # Pad blank lines to the bottom of the screen
 set tilde
 # Aligns with text
-set attribution="* %f %d:"
+set attribution='* %f %d:'
 # View HTML mails
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 # Use ISO 8601 date
-set date_format="%Y-%m-%d %H:%M:%S %z"
+set date_format='%Y-%m-%d %H:%M:%S %z'
 set index_format='%Z %{%Y-%m-%d} %-22.22L %s'
 # Call urlview to extract links
 macro index \cb '|urlview\n' 'call urlview to extract URLs'
@@ -23,12 +23,11 @@ macro pager \cb '|urlview\n' 'call urlview to extract URLs'
 set smart_wrap
 unset markers
 # Specifiy forward format (see attribution) and add message to body
-set forward_format="Fwd: %s"
-set forward_attribution_intro="/ %f %d:"
-set forward_attribution_trailer=""
+set forward_format='Fwd: %s'
+set forward_attribution_intro='/ %f %d:'
+set forward_attribution_trailer=''
 set forward_quote
-# 
-set editor="vim"
+set editor='vim'
 # Allow changes to the header
 set edit_headers=yes
 set pager_context=3
@@ -52,7 +51,7 @@ set sleep_time=0
 # Keep sent mails unencrypted
 set fcc_clear
 # Header caching
-set header_cache="~/.mutt/cache"
+set header_cache='~/.mutt/cache'
 # Setup urlscan
 macro index,pager \cb "<pipe-message> urlscan<Enter>" \
   "call urlscan to extract URLs out of a message"
@@ -66,7 +65,7 @@ unignore	x-address x-organisation reply-to
 unignore	mail-followup-to 
 
 # Do not sign outgoing mails
-set crypt_autosign=no
+set crypt_autosign=yes
 # Do not encrypt outgoing mails
 set crypt_autoencrypt=no
 # Encrypt answers from encrypted mails
@@ -119,18 +118,18 @@ color markers     color9      default
 color message     color7      default
 color search      color15     magenta
 color bold        color11     default
-color header      color3      default  "^From:"
-color header      color1      color233 "^(Subject|X-Spam-Score|Authentication-Res#ults):"
-color header      color10     default  "^Date:"
-color header      color6      default  "^To:"
-color header      color240    default  "^Cc:"
-color index       color240    color233 "~D(!~p|~p)"
+color header      color3      default  '^From:'
+color header      color1      color233 '^(Subject|X-Spam-Score|Authentication-Res#ults):'
+color header      color10     default  '^Date:'
+color header      color6      default  '^To:'
+color header      color240    default  '^Cc:'
+color index       color240    color233 '~D(!~p|~p)'
 color index       color12     color233 ~N
 color index       color232    color124 ~=
 color body        color128    color233 '[-.+\w]+@[-.\w]+[^.]'
-color body        color39     color233 "(ftp|http|https)://[^ >]*"
-color body        color39     color233 "<URL:[^ ]*>"
-color body        brightred   color233 "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"
+color body        color39     color233 '(ftp|http|https)://[^ >]*'
+color body        color39     color233 '<URL:[^ ]*>'
+color body        brightred   color233 'mailto: *[^ ]+\(\\?subject=[^ ]+\)?'
 
 # Check for new mail every 30 minutes
 set mail_check=1800
@@ -139,6 +138,4 @@ set askcc=yes
 set askbcc=yes
 # Abort if the message body contains hints that there should be an attachment
 set abort_noattach=yes
-set abort_noattach_regexp="attach|anhang|angehängt"
-# Add signature
-set signature='~/.mutt/signature'
+set abort_noattach_regexp='attach|anhang|angehängt'

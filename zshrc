@@ -89,7 +89,7 @@ alias led='$EDITOR ~/.ledger'
 # Task aliases
 alias te='task edit'
 alias ta='task add'
-alias tb='task burndown'
+alias tb='task burndown.daily'
 alias tr='task ready'
 alias td='task done'
 alias ts='task start'
