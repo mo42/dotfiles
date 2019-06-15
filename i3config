@@ -121,7 +121,7 @@ bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 exec 'mpd'
 exec 'pidgin'
 
-bindsym $mod+c exec chromium-browser
+bindsym $mod+c exec firefox
 bindsym $mod+n exec urxvt -e ncmpc
 bindsym $mod+o exec i3lock -c 000000
 bindsym $mod+t exec thunar

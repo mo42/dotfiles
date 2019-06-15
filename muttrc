@@ -139,3 +139,4 @@ set askbcc=yes
 # Abort if the message body contains hints that there should be an attachment
 set abort_noattach=yes
 set abort_noattach_regexp='attach|anhang|angehängt'
+set mailcap_path='~/.mutt/mailcap'

@@ -114,7 +114,7 @@ alias tomato='(sleep 3000 && zenity --info --text="Break!") &'
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
 alias grep='grep --color=auto'
-alias bal='ledger -f ~/ledger.dat bal'
+alias bal='ledger -f ~/ledger.dat b --no-total'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
 alias isync='mbsync -aX'
 alias ..='cd ..'
@@ -161,6 +161,7 @@ else
     alias pip='pip3'
   fi
   if [[ "$OS_RELEASE_ID" == "fedora" ]]; then
+    umask 077
     alias susp='i3lock -c 000000 & sudo systemctl suspend'
     alias python='python3'
     alias pip='pip3'
@@ -221,9 +222,9 @@ pdf() {
 }
 
 mvmp3() {
-  mount /dev/sdc1 /mnt/usb
+  mount /dev/mmcblk0p1 /mnt/usb
   rm /mnt/usb/*.mp3
-  mv /home/mo/downloads/*.mp3 /mnt/usb
+  mv /tmp/*.mp3 /mnt/usb
   umount /mnt/usb/
 }
 
