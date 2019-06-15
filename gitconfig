@@ -1,0 +1,5 @@
+[alias]
+	c = commit
+	s = status
+	d = diff
+	l = log
