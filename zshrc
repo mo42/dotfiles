@@ -109,16 +109,11 @@ else
   alias cal='cal -nw'
 fi
 
-alias tomato='(sleep 3000 && zenity --info --text="Break!") &'
-
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
 alias grep='grep --color=auto'
 alias bal='ledger -f ~/ledger.dat b --no-total'
 alias bat='cat /sys/class/power_supply/BAT0/capacity'
-alias isync='mbsync -aX'
-alias ..='cd ..'
-alias ...='cd ..; cd ..'
 alias du='du -h'
 alias df='df -h'
 alias i3lock='i3lock -c 000000'
@@ -137,11 +132,7 @@ alias makeless='make 2>&1 | less -r'
 alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
-alias gd='git diff'
-alias gst='git status'
-alias gco='git commit'
 alias gitg='gitg > /dev/null 2>&1 &'
-alias todogrep='grep -Rli "todo\|fixme"'
 alias texclean='rm -f *.{aux,bbl,blg,log,fls}'
 
 if [[ "$UID" == "0" ]]; then
@@ -150,6 +141,9 @@ if [[ "$UID" == "0" ]]; then
     alias sysupdate='pacman --color always -Syu && pacman -Scc'
     alias pacdeb='pacman --color always -R $(pacman -Qtdq)'
     alias pacman='pacman --color always'
+  fi
+  if [[ "$OS_RELEASE_ID" == "fedora" ]]; then
+    alias sysupdate='dnf upgrade'
   fi
 else
   # User's aliases
@@ -246,14 +240,6 @@ pdfsplit() {
 # Modify dependencies of tasks (first argument depends on seconds argument(s))
 taskdepends() {
   task $1 modify depends:$2
-}
-
-# Cache output of ls in file (for listing many files)
-cls() {
-  if [[ ! -a .lscache ]]; then
-    ls $1 > .lscache
-  fi
-  cat .lscache
 }
 
 # Colored prompt
