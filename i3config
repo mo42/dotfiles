@@ -106,6 +106,7 @@ exec 'mpd'
 exec 'pidgin'
 
 bindsym $mod+c exec firefox
+bindsym $mod+Shift+c exec chromium-browser --incognito
 bindsym $mod+n exec urxvt -e ncmpc
 bindsym $mod+o exec i3lock -c 000000
 bindsym $mod+t exec thunar
