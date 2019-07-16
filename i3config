@@ -108,7 +108,7 @@ exec 'pidgin'
 bindsym $mod+c exec firefox
 bindsym $mod+Shift+c exec chromium-browser --incognito
 bindsym $mod+n exec urxvt -e ncmpc
-bindsym $mod+o exec i3lock -c 000000
+bindsym $mod+o exec i3lock-blur.sh
 bindsym $mod+t exec thunar
 
 gaps inner 2

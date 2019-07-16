@@ -84,7 +84,7 @@ setopt hash_list_all
 alias vrc='$EDITOR ~/.vimrc'
 alias zrc='$EDITOR ~/.zshrc'
 alias mrc='$EDITOR ~/.mutt/muttrc'
-alias led='$EDITOR ~/.ledger'
+alias led='$EDITOR ~/mount/ledger'
 
 # Task aliases
 alias te='task edit'
@@ -112,8 +112,7 @@ fi
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
 alias grep='grep --color=auto'
-alias bal='ledger -f ~/ledger.dat b --no-total'
-alias bat='cat /sys/class/power_supply/BAT0/capacity'
+alias bal='ledger -f ~/mount/ledger b --no-total'
 alias du='du -h'
 alias df='df -h'
 alias i3lock='i3lock -c 000000'
@@ -175,6 +174,8 @@ zstyle ':completion:*:*:(|g)vi(|m):*' ignored-patterns '*.(pdf|ps)'
 zstyle ':completion:*:*:pdf:*' file-patterns '*(-/):directories *.(pdf|ps)'
 # Completion for TeX files
 zstyle ':completion:*:*:(pdf|lua)latex:*' file-patterns '*(-/):directories *.tex'
+# Fix completion for the mpg123
+zstyle ':completion:*:*:mpg123:*' file-patterns '*(-/):directories *.mp3'
 # Enable colors for completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
