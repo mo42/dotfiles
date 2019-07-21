@@ -111,7 +111,8 @@ fi
 
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
-alias grep='grep --color=auto'
+alias grep='grep -i --color=auto'
+alias -g G='| grep -i --color=auto'
 alias bal='ledger -f ~/mount/ledger b --no-total'
 alias du='du -h'
 alias df='df -h'
@@ -132,7 +133,6 @@ alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
 alias gitg='gitg > /dev/null 2>&1 &'
-alias texclean='rm -f *.{aux,bbl,blg,log,fls}'
 
 if [[ "$UID" == "0" ]]; then
   # Root's aliases
@@ -236,6 +236,14 @@ jsonparse() {
 pdfsplit() {
   gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=$2 -dLastPage=$3 \
     -sOutputFile="${1%%.*}_$2_$3".pdf $1
+}
+
+texclean() {
+  rm -f *.aux
+  rm -f *.bbl
+  rm -f *.blg
+  rm -f *.log
+  rm -f *.fls
 }
 
 # Modify dependencies of tasks (first argument depends on seconds argument(s))
