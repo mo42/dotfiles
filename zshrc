@@ -244,6 +244,7 @@ texclean() {
   rm -f *.blg
   rm -f *.log
   rm -f *.fls
+  rm -f *.out
 }
 
 # Modify dependencies of tasks (first argument depends on seconds argument(s))

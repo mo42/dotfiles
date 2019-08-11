@@ -13,6 +13,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'mo42/badwords'
 Plugin 'tomasr/molokai'
+Plugin 'mbbill/undotree'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 " Enable file type plugins
 filetype plugin on
@@ -38,7 +40,7 @@ set completeopt=longest,menuone,preview
 " Show specific characters
 set list
 set listchars=tab:>-,trail:·
-" Ignore some file types
+" Ignore binary file types
 set wildignore+=*.o,*.pdf
 " Highlight search results
 set hlsearch
@@ -46,7 +48,7 @@ set hlsearch
 set incsearch
 " If the search string contains uppercase letters do not ignore case
 set ignorecase
-set smartcase 
+set smartcase
 " Regular expression as usual
 set magic
 " Show matching brackets
@@ -73,7 +75,6 @@ else
   set background=dark
 endif
 color molokai
-let g:rehash256 = 1
 " Default encoding
 set encoding=utf8
 " Enable undoing and disable backup and swap files
@@ -84,8 +85,6 @@ set undolevels=10000
 set noswapfile
 set nobackup
 set nowritebackup
-" Disable startup message
-set shortmess=I
 " Hide the mouse while typing
 set mousehide
 " Use two spaces instead of tabs
@@ -93,7 +92,7 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 " Text should be no longer than ~80 characters
-set textwidth=78 
+set textwidth=78
 " Automatically indent next line
 set autoindent
 " Allow unsaved buffers
@@ -123,16 +122,16 @@ autocmd FocusLost * :ws
 autocmd BufWrite * :set ff=unix
 " Visually wrap long lines
 set wrap
-" Number of line above and below the cursor
+" Number of lines above and below the cursor
 set scrolloff=0
 " Define leader key
 let mapleader=","
 " Fast file saving
 noremap <leader>w :w<cr>
-" Look up help quickly (trailing space intended)
-nnoremap <leader>h :help 
+" Look up help quickly
+nnoremap <leader>h :help<cr>
 " Close window
-noremap <leader>q :q<cr>
+noremap <leader>x :x<cr>
 " Repeat last colon command
 map <leader>. @:
 " Remove trailing white space
@@ -155,9 +154,6 @@ nmap <space> <pagedown>
 nmap <c-space> <pageup>
 " Regular vim format
 map Q gqip
-" Integrate clang-format
-map <c-k> :pyf /usr/share/clang/clang-format.py<cr>
-imap <c-k> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
 " Void annoying prompts
 set shortmess=a
 " Use make
@@ -167,14 +163,23 @@ set path+=**
 " Enable spell checking
 set spell
 set spelllang=en
-function! s:insert_guards()
-  let guardname = substitute(toupper(expand("%:t")), "\\.", "_", "g")
-  execute "normal! i#ifndef " . guardname
-  execute "normal! o#define " . guardname . " "
-  execute "normal! Go#endif /* " . guardname . " */"
-  normal! ko
+" Cycle through spell checkers
+nnoremap <leader>l :call CycleSpellLanguage()<cr>
+let g:current_spell_language = 'en_us'
+function CycleSpellLanguage()
+  let languages = ['', 'en_us', 'de_de', 'es_es']
+  let i = index(languages, g:current_spell_language)
+  let j = (i + 1) % len(languages)
+  let g:current_spell_language = languages[j]
+  if empty(g:current_spell_language)
+    set nospell
+    echo 'No spell language'
+  else
+    set spell
+    let &spelllang=g:current_spell_language
+    echo 'Current spell language ' . g:current_spell_language
+  endif
 endfunction
-autocmd BufNewFile *.{h,hpp} call <sid>insert_guards()
 " Make ctrl-f directly available
 map <leader>f <esc>:<c-f>
 map <leader>e <esc>:e<space>
@@ -203,20 +208,4 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " Abbreviations
 iab teh the
 iab tath that
-" Cycle through spell checkers
-nnoremap <leader>l :call CycleSpellLanguage()<cr>
-let g:current_spell_language = 'en_us'
-function CycleSpellLanguage()
-  let languages = ['', 'en_us', 'de_de', 'es_es']
-  let i = index(languages, g:current_spell_language)
-  let j = (i + 1) % len(languages)
-  let g:current_spell_language = languages[j]
-  if empty(g:current_spell_language)
-    set nospell
-    echo 'No spell language'
-  else
-    set spell
-    let &spelllang=g:current_spell_language
-    echo 'Current spell language ' . g:current_spell_language
-  endif
-endfunction
+au! BufNewFile,BufRead *.svelte set ft=html
