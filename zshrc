@@ -113,7 +113,6 @@ alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
 alias grep='grep -i --color=auto'
 alias -g G='| grep -i --color=auto'
-alias bal='ledger -f ~/mount/ledger b --no-total'
 alias du='du -h'
 alias df='df -h'
 alias i3lock='i3lock -c 000000'
@@ -245,6 +244,8 @@ texclean() {
   rm -f *.log
   rm -f *.fls
   rm -f *.out
+  rm -r *.fdb_latexmk
+  rm -r *.fls
 }
 
 # Modify dependencies of tasks (first argument depends on seconds argument(s))
