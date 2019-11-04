@@ -94,9 +94,6 @@ alias tr='task ready'
 alias td='task done'
 alias ts='task start'
 alias tw='task waiting'
-# Collect my ideas and review on Saturday
-alias ii='task add due:saturday wait:saturday project:inbox'
-alias buy='task add project:buy'
 # Wait until tomorrow
 alias ttt='task modify wait:tomorrow'
 # Wait until next Monday
@@ -246,6 +243,8 @@ texclean() {
   rm -f *.out
   rm -r *.fdb_latexmk
   rm -r *.fls
+  rm -r *.run.xml
+  rm -r *.bcf
 }
 
 # Modify dependencies of tasks (first argument depends on seconds argument(s))
@@ -259,3 +258,19 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
+
+deploy() {
+  cd ~/dotfiles/
+  for f in `ls --color=none`
+  do
+    if [[ $f == "README.md" ]] || [[ $f == "" ]]; then
+      continue
+    fi
+    if [ -d $f]; then
+      continue
+    else
+      rm -f ~/.${f}
+      ln -s $f ~/.${f}
+    fi
+  done
+}
