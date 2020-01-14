@@ -9,9 +9,6 @@ export OS_RELEASE_ID=`cat /etc/os-release | sed -n '/^ID=/p' | sed 's/^...//'`
 if [ -d "$HOME/bin" ]; then
   export PATH=$HOME/bin:$PATH
 fi
-if [ -d "$HOME/.cabal/bin" ]; then
-  export PATH=$HOME/.cabal/bin:$PATH
-fi
 if [ -d "$HOME/.local/bin" ]; then
   export PATH=$HOME/.local/bin:$PATH
 fi
@@ -221,7 +218,7 @@ mvmp3() {
 
 flac2mp3() {
   for a in ./*.flac; do
-    ffmpeg -i "$a" -qscale:a 0 "${a[@]/%flac/mp3}"
+    ffmpeg -i "$a" -qscale:a 0 "/tmp/${a[@]/%flac/mp3}"
   done
 }
 
@@ -238,13 +235,16 @@ texclean() {
   rm -f *.aux
   rm -f *.bbl
   rm -f *.blg
-  rm -f *.log
   rm -f *.fls
+  rm -f *.lof
+  rm -f *.log
+  rm -f *.lot
   rm -f *.out
+  rm -f *.toc
+  rm -r *.bcf
   rm -r *.fdb_latexmk
   rm -r *.fls
   rm -r *.run.xml
-  rm -r *.bcf
 }
 
 # Modify dependencies of tasks (first argument depends on seconds argument(s))
@@ -258,19 +258,3 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
-
-deploy() {
-  cd ~/dotfiles/
-  for f in `ls --color=none`
-  do
-    if [[ $f == "README.md" ]] || [[ $f == "" ]]; then
-      continue
-    fi
-    if [ -d $f]; then
-      continue
-    else
-      rm -f ~/.${f}
-      ln -s $f ~/.${f}
-    fi
-  done
-}
