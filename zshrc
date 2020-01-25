@@ -81,8 +81,8 @@ setopt hash_list_all
 alias vrc='$EDITOR ~/.vimrc'
 alias zrc='$EDITOR ~/.zshrc'
 alias mrc='$EDITOR ~/.mutt/muttrc'
-alias led='$EDITOR ~/mount/ledger'
 
+alias ocean='nohup mpg123 ~/audio/ocean.mp3 > /dev/null &'
 # Task aliases
 alias te='task edit'
 alias ta='task add'
@@ -109,7 +109,6 @@ alias grep='grep -i --color=auto'
 alias -g G='| grep -i --color=auto'
 alias du='du -h'
 alias df='df -h'
-alias i3lock='i3lock -c 000000'
 
 # Ask before overwriting
 alias mv='mv -i'
@@ -121,9 +120,6 @@ alias vimv='qmv -f do'
 alias zsrc='source ~/.zshrc'
 
 # Development
-alias makeless='make 2>&1 | less -r'
-alias cmakedebug='cmake -DCMAKE_BUILD_TYPE=Debug'
-alias cmakerelease='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -tui'
 alias gitg='gitg > /dev/null 2>&1 &'
 
