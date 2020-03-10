@@ -1,3 +1,4 @@
 color.scheduled=white on black
 color.blocking=black on white
-color.due=bright red on white
+color.due=bright red on black
+

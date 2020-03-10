@@ -237,9 +237,16 @@ texclean() {
   rm -f *.lot
   rm -f *.out
   rm -f *.toc
+  rm -r *.acn
+  rm -r *.acr
+  rm -r *.alg
   rm -r *.bcf
   rm -r *.fdb_latexmk
   rm -r *.fls
+  rm -r *.glg
+  rm -r *.glo
+  rm -r *.gls
+  rm -r *.glsdefs
   rm -r *.run.xml
 }
 
