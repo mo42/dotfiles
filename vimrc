@@ -161,18 +161,18 @@ set spell
 set spelllang=en
 " Cycle through spell checkers
 nnoremap <leader>l :call CycleSpellLanguage()<cr>
-let g:current_spell_language = 'en_us'
+let g:current_spell_language = ''
 function CycleSpellLanguage()
   let languages = ['', 'en_us', 'de_de']
   let i = (index(languages, g:current_spell_language) + 1) % len(languages)
   let g:current_spell_language = languages[i]
+  call HighlightBadwords(g:current_spell_language)
   if empty(g:current_spell_language)
     set nospell
     echo 'No spell language'
   else
     set spell
     let &spelllang=g:current_spell_language
-    call HighlightBadwords(g:current_spell_language)
     echo 'Current spell language ' . g:current_spell_language
   endif
 endfunction
@@ -204,4 +204,11 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " Abbreviations
 iab teh the
 iab tath that
-au! BufNewFile,BufRead *.svelte set ft=html
+" LaTeX settings
+augroup tex
+  autocmd FileType tex setlocal wrap
+  autocmd FileType tex setlocal linebreak
+  autocmd FileType tex setlocal textwidth=0
+  autocmd FileType tex setlocal iskeyword+=:
+  autocmd FileType tex map <leader>t :w<cr> :!pdflatex %<cr>
+augroup END

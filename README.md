@@ -20,3 +20,5 @@ inspirational source though.
 * `.Xresources`
 * `.Xmodmap`
 * `.latexmkrc`
+* `.taskrc`
+* `.timewarrior.cfg`

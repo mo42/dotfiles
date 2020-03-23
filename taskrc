@@ -11,7 +11,8 @@ urgency.next.coefficient      =  12.0
 urgency.waiting.coefficient   = -10.0
 urgency.scheduled.coefficient =  2.0
 urgency.blocked.coefficient   = -12.0
-urgency.due.coefficient       =  16.0
+urgency.due.coefficient       =  1000.0
+urgency.active.coefficient    =  4.0
 
 report.next.columns           = id,depends,priority,project,tags,recur,scheduled.countdown,due,due.relative,until.remaining,description,urgency
 report.next.description       = Most urgent tasks

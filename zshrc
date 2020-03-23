@@ -113,7 +113,7 @@ alias df='df -h'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
-alias cdd='cd ~/downloads'
+alias in='cd ~/inbox'
 
 # Modify file names in vim
 alias vimv='qmv -f do'

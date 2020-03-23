@@ -7,4 +7,5 @@ if [[ $OS_RELEASE_ID == "fedora" ]]; then
   xrandr --output eDP-1 --primary --mode 1600x900 &
   sh /etc/X11/xinit/xinitrc &
 fi
+/home2/mo/.fehbg &
 exec i3

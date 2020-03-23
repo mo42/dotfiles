@@ -2,5 +2,5 @@
 XTerm*scrollBar: false
 *foreground: white
 *background: black
-*font: xft:Liberation Mono:pixelsize=17:antialias=true:hinting=true
+*font: xft:Liberation Mono:pixelsize=18:antialias=true:hinting=true
 *cursorBlink: 0
