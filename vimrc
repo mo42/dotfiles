@@ -211,4 +211,6 @@ augroup tex
   autocmd FileType tex setlocal textwidth=0
   autocmd FileType tex setlocal iskeyword+=:
   autocmd FileType tex map <leader>t :w<cr> :!pdflatex %<cr>
+  autocmd FileType tex call HighlightBadwords('en_us')
+  autocmd FileType tex setlocal colorcolumn=0
 augroup END

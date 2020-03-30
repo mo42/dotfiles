@@ -96,6 +96,7 @@ alias ttt='task modify wait:tomorrow'
 # Wait until next Monday
 alias ttm='task modify wait:monday'
 alias tts='task modify wait:saturday'
+alias day='timew day'
 
 if [[ -x `which task` ]]; then
   alias cal='task calendar'
