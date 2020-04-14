@@ -103,7 +103,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 
 exec 'mpd'
-exec 'pidgin'
 
 bindsym $mod+c exec firefox
 bindsym $mod+Shift+c exec chromium-browser --incognito

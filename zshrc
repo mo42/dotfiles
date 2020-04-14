@@ -97,6 +97,7 @@ alias ttt='task modify wait:tomorrow'
 alias ttm='task modify wait:monday'
 alias tts='task modify wait:saturday'
 alias day='timew day'
+alias week='timew week'
 
 if [[ -x `which task` ]]; then
   alias cal='task calendar'
@@ -114,7 +115,6 @@ alias df='df -h'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
-alias in='cd ~/inbox'
 
 # Modify file names in vim
 alias vimv='qmv -f do'
@@ -123,6 +123,9 @@ alias zsrc='source ~/.zshrc'
 # Development
 alias gdb='gdb -tui'
 alias gitg='gitg > /dev/null 2>&1 &'
+
+alias wup='sudo systemctl start wpa_supplicant@wlp3s0'
+alias wdn='sudo systemctl stop wpa_supplicant@wlp3s0'
 
 if [[ "$UID" == "0" ]]; then
   # Root's aliases
@@ -262,3 +265,5 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
+
+source ~/code/z/z.sh
