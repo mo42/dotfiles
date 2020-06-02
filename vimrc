@@ -214,3 +214,5 @@ augroup tex
   autocmd FileType tex call HighlightBadwords('en_us')
   autocmd FileType tex setlocal colorcolumn=0
 augroup END
+
+nnoremap <leader>z :e ~/zettelkasten/index.md<cr>:cd ~/zettelkasten/

@@ -81,6 +81,7 @@ setopt hash_list_all
 alias vrc='$EDITOR ~/.vimrc'
 alias zrc='$EDITOR ~/.zshrc'
 alias mrc='$EDITOR ~/.mutt/muttrc'
+alias zettel='$EDITOR ~/zettelkasten/index.md'
 
 alias ocean='nohup mpg123 ~/audio/ocean.mp3 > /dev/null &'
 # Task aliases
