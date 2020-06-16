@@ -81,7 +81,7 @@ setopt hash_list_all
 alias vrc='$EDITOR ~/.vimrc'
 alias zrc='$EDITOR ~/.zshrc'
 alias mrc='$EDITOR ~/.mutt/muttrc'
-alias zettel='$EDITOR ~/zettelkasten/index.md'
+alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
 alias ocean='nohup mpg123 ~/audio/ocean.mp3 > /dev/null &'
 # Task aliases
@@ -115,6 +115,7 @@ alias df='df -h'
 
 # Ask before overwriting
 alias mv='mv -i'
+alias mvo='rsync --remove-source-files --chown=mo:users'
 alias cp='cp -i'
 
 # Modify file names in vim
@@ -125,8 +126,8 @@ alias zsrc='source ~/.zshrc'
 alias gdb='gdb -tui'
 alias gitg='gitg > /dev/null 2>&1 &'
 
-alias wup='sudo systemctl start wpa_supplicant@wlp3s0'
-alias wdn='sudo systemctl stop wpa_supplicant@wlp3s0'
+alias wup='sudo systemctl start wpa_supplicant@wlp3s0 & sudo rfkill unblock wlan'
+alias wdn='sudo rfkill block wlan & sudo systemctl stop wpa_supplicant@wlp3s0'
 
 if [[ "$UID" == "0" ]]; then
   # Root's aliases

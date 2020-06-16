@@ -132,6 +132,8 @@ noremap <leader>x :x<cr>
 map <leader>. @:
 " Remove trailing white space
 map <leader>s :%s/\s\+$//e<cr>
+" Open zettelkasten index file
+nnoremap <leader>z :e ~/zettelkasten/index.md<cr>:cd ~/zettelkasten/
 " Show end of lines
 set colorcolumn=80
 " Always show status line
@@ -214,5 +216,12 @@ augroup tex
   autocmd FileType tex call HighlightBadwords('en_us')
   autocmd FileType tex setlocal colorcolumn=0
 augroup END
+" Markdown settings
+augroup md
+  autocmd FileType md setlocal wrap
+  autocmd FileType md setlocal linebreak
+  autocmd FileType md setlocal textwidth=0
+  autocmd FileType md call HighlightBadwords('en_us')
+  autocmd FileType md setlocal colorcolumn=0
+augroup END
 
-nnoremap <leader>z :e ~/zettelkasten/index.md<cr>:cd ~/zettelkasten/
