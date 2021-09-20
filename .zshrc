@@ -1,10 +1,9 @@
 #!/bin/zsh
 
 export LC_ALL=en_US.UTF8
-export EDITOR=vim
+export EDITOR=nvim
 export TERM=xterm-256color
 eval $(dircolors -b $HOME/.dircolors)
-export OS_RELEASE_ID=`cat /etc/os-release | sed -n '/^ID=/p' | sed 's/^...//'`
 
 if [ -d "$HOME/bin" ]; then
   export PATH=$HOME/bin:$PATH
@@ -86,30 +85,14 @@ alias zrc='$EDITOR ~/.zshrc'
 alias mrc='$EDITOR ~/.mutt/muttrc'
 alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
-alias ocean='nohup mpg123 ~/audio/ocean.mp3 > /dev/null &'
-# Task aliases
-alias te='task edit'
-alias ta='task add'
-alias tb='task burndown.daily'
-alias tr='task ready'
-alias td='task done'
-alias ts='task start'
-alias tw='task waiting'
-# Wait until tomorrow
-alias ttt='task modify wait:tomorrow'
-# Wait until next Monday
-alias ttm='task modify wait:monday'
-alias tts='task modify wait:saturday'
-
-alias cal='cal'
-
 alias ls='ls --color=always'
 alias ll='ls -lh --color=always --time-style=long-iso'
 alias grep='grep -i --color=auto'
 alias -g G='| grep -i --color=auto'
 alias du='du -h'
 alias df='df -h'
-
+# Manage dotfiles using git
+alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Ask before overwriting
 alias mv='mv -i'
 alias mvo='rsync --remove-source-files --chown=mo:users'
@@ -119,13 +102,7 @@ alias cp='cp -i'
 alias vimv='qmv -f do'
 alias zsrc='source ~/.zshrc'
 
-# Development
-alias gdb='gdb -tui'
-alias gitg='gitg > /dev/null 2>&1 &'
-
-alias wup='sudo systemctl start wpa_supplicant@wlp3s0 & sudo rfkill unblock wlan'
-alias wdn='sudo rfkill block wlan & sudo systemctl stop wpa_supplicant@wlp3s0'
-
+export OS_RELEASE_ID=`cat /etc/os-release | sed -n '/^ID=/p' | sed 's/^...//'`
 if [[ "$UID" == "0" ]]; then
   # Root's aliases
   if [[ "$OS_RELEASE_ID" == "arch" ]]; then
@@ -156,8 +133,8 @@ fi
 autoload -U colors && colors
 autoload -U compinit
 compinit
-watch=all 
-logcheck=60 
+watch=all
+logcheck=60
 zstyle ':completion:*' list-prompt ''
 zstyle ':completion:*' select-prompt ''
 # Ignore certain file extensions from vim
@@ -166,8 +143,6 @@ zstyle ':completion:*:*:(|g)vi(|m):*' ignored-patterns '*.(pdf|ps)'
 zstyle ':completion:*:*:pdf:*' file-patterns '*(-/):directories *.(pdf|ps)'
 # Completion for TeX files
 zstyle ':completion:*:*:(pdf|lua)latex:*' file-patterns '*(-/):directories *.tex'
-# Fix completion for the mpg123
-zstyle ':completion:*:*:mpg123:*' file-patterns '*(-/):directories *.mp3'
 # Enable colors for completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
@@ -208,10 +183,6 @@ pdf() {
   fi
 }
 
-flac2m4a() {
-  find . -name '*.flac' -print0 | xargs -0 -I FILE sh -c 'ffmpeg -i "$1" -c:a aac -vbr 3 "${1%.flac}.m4a"' -- FILE
-}
-
 jsonparse() {
   cat $1 | python -c "import sys,json;json.loads(sys.stdin.read())"
 }
@@ -245,11 +216,6 @@ texclean() {
   rm -r *.lbl
 }
 
-# Modify dependencies of tasks (first argument depends on seconds argument(s))
-taskdepends() {
-  task $1 modify depends:$2
-}
-
 # Colored prompt
 if [[ "$UID" == "0" ]]; then
   PROMPT="%{$fg_bold[red]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
@@ -257,7 +223,5 @@ else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
 
+# https://github.com/rupa/z
 source ~/code/z/z.sh
-
-# Manage dotfiles using git
-alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
