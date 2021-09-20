@@ -1,23 +1,22 @@
 # dotfiles
 
-https://news.ycombinator.com/item?id=11071754
+Mange your dotfiles directly with `git` ([based on this HN post](https://news.ycombinator.com/item?id=11071754)).
 
 ## Replicate on new machine
-
-```console
-git clone --separate-git-dir=~/.dotfiles /path/to/repo ~/tmp-dotfiles
+```sh
+git clone --separate-git-dir=~/.dotfiles ~/tmp-dotfiles
 rm -r ~/tmp-dotfiles
 ```
 
-## Example: Add Vim Config
-```console
+## Example: Add Vim Configuration
+```sh
 dotgit status
 dotgit add .vimrc
 dotgit commit -m "Add vimrc"
 ```
 
 ## Initial Setup
-```console
+```sh
 git init --bare $HOME/.dotfiles
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 dotgit config status.showUntrackedFiles no
