@@ -140,5 +140,3 @@ set abort_noattach_regexp='attach|anhang|angehängt'
 set mailcap_path='~/.config/neomutt/mailcap'
 # Fix subject line
 set reply_regexp="^((re([\[^-][0-9]+\]?)*|aw|antwort|antw):[ \t]*)+"
-
-set sidebar_visible

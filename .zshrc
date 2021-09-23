@@ -80,9 +80,10 @@ setopt auto_param_slash
 setopt hash_list_all
 
 # Frequently used files
-alias vrc='$EDITOR ~/.vimrc'
+alias vrc='$EDITOR ~/.config/nvim/init.vim'
 alias zrc='$EDITOR ~/.zshrc'
-alias mrc='$EDITOR ~/.mutt/muttrc'
+alias zsrc='source ~/.zshrc'
+alias mrc='$EDITOR ~/.config/neomutt/muttrc'
 alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
 alias ls='ls --color=always'
@@ -95,12 +96,10 @@ alias df='df -h'
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Ask before overwriting
 alias mv='mv -i'
-alias mvo='rsync --remove-source-files --chown=mo:users'
 alias cp='cp -i'
 
 # Modify file names in vim
 alias vimv='qmv -f do'
-alias zsrc='source ~/.zshrc'
 
 export OS_RELEASE_ID=`cat /etc/os-release | sed -n '/^ID=/p' | sed 's/^...//'`
 if [[ "$UID" == "0" ]]; then
