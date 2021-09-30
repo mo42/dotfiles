@@ -1,9 +1,8 @@
 #!/bin/zsh
 
-export LC_ALL=en_US.UTF8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
-export TERM=xterm-256color
-eval $(dircolors -b $HOME/.dircolors)
 
 if [ -d "$HOME/bin" ]; then
   export PATH=$HOME/bin:$PATH
@@ -86,8 +85,8 @@ alias zsrc='source ~/.zshrc'
 alias mrc='$EDITOR ~/.config/neomutt/muttrc'
 alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
-alias ls='ls --color=always'
-alias ll='ls -lh --color=always --time-style=long-iso'
+alias vim='nvim'
+alias mutt='neomutt'
 alias grep='grep -i --color=auto'
 alias -g G='| grep -i --color=auto'
 alias du='du -h'
@@ -101,33 +100,17 @@ alias cp='cp -i'
 # Modify file names in vim
 alias vimv='qmv -f do'
 
-export OS_RELEASE_ID=`cat /etc/os-release | sed -n '/^ID=/p' | sed 's/^...//'`
-if [[ "$UID" == "0" ]]; then
-  # Root's aliases
-  if [[ "$OS_RELEASE_ID" == "arch" ]]; then
-    alias sysupdate='pacman --color always -Syu && pacman -Scc'
-    alias pacdeb='pacman --color always -R $(pacman -Qtdq)'
-    alias pacman='pacman --color always'
-  fi
-  if [[ "$OS_RELEASE_ID" == "fedora" ]]; then
-    alias sysupdate='dnf upgrade'
-  fi
-else
-  # User's aliases
-  if [[ "$OS_RELEASE_ID" == "arch" ]]; then
-    alias susp='i3lock -c 000000 & systemctl suspend'
-  fi
-  if [[ "$OS_RELEASE_ID" == "ubuntu" ]]; then
-    alias python='python3'
-    alias pip='pip3'
-  fi
-  if [[ "$OS_RELEASE_ID" == "fedora" ]]; then
-    umask 077
-    alias susp='i3lock -c 000000 & sudo systemctl suspend'
-    alias python='python3'
-    alias pip='pip3'
-  fi
-fi
+case `uname` in
+  Darwin)
+    alias ls='ls -G'
+    ;;
+  Linux)
+    export OS_RELEASE_ID=`cat /etc/os-release | sed -n '/^ID=/p' | sed 's/^...//'`
+    eval $(dircolors -b $HOME/.dircolors)
+    alias ls='ls --color=always'
+    alias ll='ls -lh --color=always --time-style=long-iso'
+    ;;
+esac
 
 autoload -U colors && colors
 autoload -U compinit

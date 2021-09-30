@@ -1,8 +1,9 @@
 # dotfiles
 
-Mange your dotfiles directly with `git` ([based on this HN post](https://news.ycombinator.com/item?id=11071754)).
+Mange your dotfiles directly with `git`
+([based on this HN post](https://news.ycombinator.com/item?id=11071754)).
 
-## Replicate on new machine
+## Replicate on new Machine
 ```sh
 git clone --separate-git-dir=~/.dotfiles ~/tmp-dotfiles
 rm -r ~/tmp-dotfiles
