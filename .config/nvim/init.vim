@@ -116,9 +116,9 @@ imap <c-j> <cr><cr>
 imap <c-d> <del>
 " Insert date
 iab <expr> DATE strftime("%Y-%m-%d")
-iab <expr> FULLISODATE strftime("%Y-%m-%dT%H:%M:%S%z")
 iab GRUSSE Viele Grüße<cr>Moritz<esc>
 iab REGARDS Kind regards,<cr>Moritz<esc>
+iab MDLINK []()<esc>i
 " Space scrolls down in normal mode
 nmap <space> <pagedown>
 nmap <c-space> <pageup>
