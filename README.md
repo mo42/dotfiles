@@ -5,7 +5,7 @@ Mange your dotfiles directly with `git`
 
 ## Replicate on new Machine
 ```sh
-git clone --separate-git-dir=~/.dotfiles ~/tmp-dotfiles
+git clone --separate-git-dir=$HOME/.dotfiles ~/tmp-dotfiles
 rm -r ~/tmp-dotfiles
 ```
 
