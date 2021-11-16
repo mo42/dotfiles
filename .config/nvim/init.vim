@@ -189,17 +189,9 @@ augroup md
   autocmd FileType md setlocal colorcolumn=0
 augroup END
 set clipboard=unnamedplus
-nnoremap <leader>* *#
-set shada=!,'100,<50,s10,h
+set shadafile=~/.config/nvim/shada
 " Return to last edit position when opening files
 autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal! g`\"" |
-  \ endif
-let g:hardtime_default_on = 1
-let g:hardtime_timeout = 8000
-let g:hardtime_showmsg = 1
-let g:hardtime_maxcount = 4
-let g:hardtime_allow_different_key = 1
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x"]
-let g:list_of_normal_keys += ["w", "b", "dd"]
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
