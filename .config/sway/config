@@ -115,3 +115,5 @@ hide_edge_borders smart
 smart_gaps on
 gaps inner 5
 include /etc/sway/config.d/*
+
+bindsym $mod+c exec firefox
