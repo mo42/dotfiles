@@ -55,9 +55,10 @@ color molokai
 " Default encoding
 set encoding=utf8
 " Enable undoing and disable backup and swap files
+set undofile
 set undodir=~/.config/nvim/undodir/
-set undoreload=10000
-set undolevels=10000
+set undoreload=100000
+set undolevels=100000
 set noswapfile
 set nobackup
 set nowritebackup
@@ -202,3 +203,10 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+set clipboard=unnamedplus
+nnoremap <leader>* *#
+" Return to last edit position when opening files
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
