@@ -87,8 +87,8 @@ alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
 alias vim='nvim'
 alias mutt='neomutt'
-alias grep='grep -i --color=auto'
-alias -g G='| grep -i --color=auto'
+alias grep='grep -i --color=always'
+alias -g G='| grep -i --color=always'
 alias du='du -h'
 alias df='df -h'
 # Manage dotfiles using git
@@ -96,6 +96,12 @@ alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
+
+# Taskwarrior
+alias td='task done'
+alias tr='task ready'
+alias ts='task start'
+alias te='task edit'
 
 # Modify file names in vim
 alias vimv='qmv -f do'
