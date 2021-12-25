@@ -7,12 +7,19 @@ export EDITOR=nvim
 if [ -d "$HOME/bin" ]; then
   export PATH=$HOME/bin:$PATH
 fi
+
 if [ -d "$HOME/.local/bin" ]; then
   export PATH=$HOME/.local/bin:$PATH
 fi
+
 if [ -d "$HOME/.cargo/bin" ]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
+
+if [ -d "/Library/TeX/texbin" ]; then
+  export PATH=/Library/TeX/texbin:$PATH
+fi
+
 # Space before | and & after completion
 export ZLE_SPACE_SUFFIX_CHARS=$'|&'
 
@@ -166,6 +173,8 @@ pdf() {
     zathura --fork $1
   elif [[ -x `which evince` ]]; then
     evince $1 &
+  elif [[ -x `which open` ]]; then
+    open $1 &
   else
     printf "Error: no decent pdf reader available!"
   fi
