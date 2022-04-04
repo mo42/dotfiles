@@ -76,21 +76,12 @@ set pgp_use_gpg_agent=yes
 # Do not scroll to very end
 set menu_context=7
 
-# Load GPG options
-source ~/.mutt/gpg.rc
-
 macro index,pager a "<save-message>=mo42/archive/<enter>" "archive messages"
 
 bind index '{'      previous-thread
 bind index '}'      next-thread
 bind index R        group-reply
 bind index <space>  collapse-thread
-
-macro index 'O' "<shell-escape>mbsync -aX<enter>" "run mbsync to sync all mail"
-# Change folders quickly
-macro index I <change-folder>~/.maildir/mo42/inbox<enter>
-macro index S <change-folder>~/.maildir/mo42/sent<enter>
-#macro index a <change-folder>~/.maildir/mo42/archive<enter>
 
 # Addresses
 set query_command="abook --mutt-query '%s'"
@@ -140,3 +131,4 @@ set abort_noattach_regexp='attach|anhang|angehängt'
 set mailcap_path='~/.config/neomutt/mailcap'
 # Fix subject line
 set reply_regexp="^((re([\[^-][0-9]+\]?)*|aw|antwort|antw):[ \t]*)+"
+set signature="~/.config/neomutt/signature"
