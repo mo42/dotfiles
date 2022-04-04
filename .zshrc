@@ -228,3 +228,6 @@ fi
 
 # https://github.com/rupa/z
 source ~/code/z/z.sh
+if [ -f "$HOME/.7l.sh" ]; then
+  source ~/.7l.sh
+fi
