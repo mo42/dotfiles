@@ -85,6 +85,7 @@ alias zsrc='source ~/.zshrc'
 alias mrc='$EDITOR ~/.config/neomutt/muttrc'
 alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
+alias cdd='cd ~/downloads'
 alias vim='nvim'
 alias mutt='neomutt'
 alias grep='grep -i --color=always'
@@ -96,6 +97,9 @@ alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Ask before overwriting
 alias mv='mv -i'
 alias cp='cp -i'
+
+alias gitdeletemerged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias gitg='gitg &>/dev/null &'
 
 # Taskwarrior
 alias td='task done'
@@ -133,6 +137,8 @@ zstyle ':completion:*:*:pdf:*' file-patterns '*(-/):directories *.(pdf|ps)'
 zstyle ':completion:*:*:(pdf|lua)latex:*' file-patterns '*(-/):directories *.tex'
 # Enable colors for completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
 # Create archive files
 function carchive() {
