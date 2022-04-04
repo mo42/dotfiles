@@ -6,9 +6,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'takac/vim-hardtime'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'mo42/badwords'
 Plugin 'tomasr/molokai'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
 call vundle#end()
 " Enable file type plugins
 filetype plugin on
@@ -120,6 +121,7 @@ iab <expr> DATE strftime("%Y-%m-%d")
 iab GRUSSE Viele Grüße<cr>Moritz<esc>
 iab REGARDS Kind regards,<cr>Moritz<esc>
 iab MDLINK []()<esc>i
+iab MDIMAGE ![]()<esc>i
 " Space scrolls down in normal mode
 nmap <space> <pagedown>
 nmap <c-space> <pageup>
@@ -152,33 +154,22 @@ function CycleSpellLanguage()
   endif
 endfunction
 " Make ctrl-f directly available
-map <leader>f <esc>:<c-f>
+map <leader>c <esc>:<c-f>
 map <leader>e <esc>:e<space>
+map <leader>f <esc>:Files<cr>
 " Disable line numbering for copying content
 map <leader>n :call NoNumber()<cr>
 function NoNumber()
   set nonumber
   set norelativenumber
 endfunction
-let g:hardtime_default_on = 1
-let g:hardtime_timeout = 8000
-let g:hardtime_showmsg = 1
-let g:hardtime_maxcount = 4
-let g:hardtime_allow_different_key = 1
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x"]
-let g:list_of_normal_keys += ["w", "b", "dd"]
-" Plugin settings: vim-javascript
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
-let g:ale_fixers = { 'javascript': ['eslint'], }
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
 " Abbreviations
 iab teh the
 iab tath that
+iab goverment government
 " LaTeX settings
 augroup tex
   autocmd FileType tex setlocal wrap
@@ -205,3 +196,10 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
+let g:hardtime_default_on = 1
+let g:hardtime_timeout = 8000
+let g:hardtime_showmsg = 1
+let g:hardtime_maxcount = 4
+let g:hardtime_allow_different_key = 1
+let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x"]
+let g:list_of_normal_keys += ["w", "b", "dd"]
