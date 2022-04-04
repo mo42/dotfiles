@@ -188,9 +188,14 @@ augroup md
   autocmd FileType md call HighlightBadwords('en_us')
   autocmd FileType md setlocal colorcolumn=0
 augroup END
+set shadafile=~/.config/nvim/shada
+" Return to last edit position when opening files
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
 set clipboard=unnamedplus
 nnoremap <leader>* *#
-set shada=!,'100,<50,s10,h
 " Return to last edit position when opening files
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
