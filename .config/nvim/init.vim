@@ -10,6 +10,7 @@ Plugin 'mo42/badwords'
 Plugin 'tomasr/molokai'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+Plugin 'luochen1990/rainbow'
 call vundle#end()
 " Enable file type plugins
 filetype plugin on
@@ -69,8 +70,8 @@ set mousehide
 set expandtab
 set shiftwidth=2
 set tabstop=2
-" Text should be no longer than ~80 characters
-set textwidth=78
+" Disable wrapping text as this is done by auto-formatting tools
+set textwidth=0
 " Automatically indent next line
 set autoindent
 " Allow unsaved buffers
@@ -208,3 +209,5 @@ let g:hardtime_maxcount = 4
 let g:hardtime_allow_different_key = 1
 let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x"]
 let g:list_of_normal_keys += ["w", "b", "dd"]
+
+let g:rainbow_active = 1

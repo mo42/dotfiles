@@ -12,7 +12,6 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/default.png fill
 ### Idle configuration
 exec swayidle -w \
   timeout 300 'swaylock -f -c 000000' \
