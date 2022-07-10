@@ -12,6 +12,18 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'luochen1990/rainbow'
 call vundle#end()
+" Plugin settings
+" vim-hardtime
+let g:hardtime_default_on = 1
+let g:hardtime_timeout = 8000
+let g:hardtime_showmsg = 0
+let g:hardtime_maxcount = 4
+let g:hardtime_allow_different_key = 0
+let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x"]
+let g:list_of_normal_keys += ["w", "b", "dd"]
+let g:hardtime_motion_with_count_resets = 1
+" rainbow
+let g:rainbow_active = 1
 " Enable file type plugins
 filetype plugin on
 " No annoyances
@@ -189,6 +201,10 @@ augroup md
   autocmd FileType md call HighlightBadwords('en_us')
   autocmd FileType md setlocal colorcolumn=0
 augroup END
+<<<<<<< HEAD
+=======
+set clipboard=unnamedplus
+>>>>>>> vundle-documentation
 set shadafile=~/.config/nvim/shada
 " Return to last edit position when opening files
 autocmd BufReadPost *
@@ -202,12 +218,3 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
-let g:hardtime_default_on = 1
-let g:hardtime_timeout = 8000
-let g:hardtime_showmsg = 1
-let g:hardtime_maxcount = 4
-let g:hardtime_allow_different_key = 1
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x"]
-let g:list_of_normal_keys += ["w", "b", "dd"]
-
-let g:rainbow_active = 1
