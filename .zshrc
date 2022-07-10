@@ -16,6 +16,10 @@ if [ -d "$HOME/.cargo/bin" ]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
 
+if [ -d "$HOME/.cabal/bin" ]; then
+  export PATH=$HOME/.cabal/bin:$PATH
+fi
+
 if [ -d "/Library/TeX/texbin" ]; then
   export PATH=/Library/TeX/texbin:$PATH
 fi
