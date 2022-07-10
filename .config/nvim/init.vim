@@ -201,10 +201,7 @@ augroup md
   autocmd FileType md call HighlightBadwords('en_us')
   autocmd FileType md setlocal colorcolumn=0
 augroup END
-<<<<<<< HEAD
-=======
 set clipboard=unnamedplus
->>>>>>> vundle-documentation
 set shadafile=~/.config/nvim/shada
 " Return to last edit position when opening files
 autocmd BufReadPost *
