@@ -114,6 +114,9 @@ alias tr='task ready'
 alias ts='task start'
 alias te='task edit'
 
+alias bal='ledger --price-db price_history.db --market -f accounting.db balance'
+alias book='vim accounting.db'
+
 # Modify file names in vim
 alias vimv='qmv -f do'
 
