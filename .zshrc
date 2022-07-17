@@ -16,6 +16,10 @@ if [ -d "$HOME/.cargo/bin" ]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
 
+if [ -d "$HOME/.cabal/bin" ]; then
+  export PATH=$HOME/.cabal/bin:$PATH
+fi
+
 if [ -d "/Library/TeX/texbin" ]; then
   export PATH=/Library/TeX/texbin:$PATH
 fi
@@ -93,7 +97,8 @@ alias mrc='$EDITOR ~/.config/neomutt/muttrc'
 alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
 alias cdd='cd ~/downloads'
-alias vim='nvim'
+alias vi='nvim'
+alias cat='bat -p'
 alias mutt='neomutt'
 alias grep='grep -i --color=always'
 alias -g G='| grep -i --color=always'
