@@ -56,7 +56,7 @@ setopt inc_append_history
 # Reload the history upon use
 setopt share_history
 # Better safe than sorry
-setopt rm_star_wait 
+setopt rm_star_wait
 # Confirm deletions
 setopt rm_star_silent
 # No annoyances
