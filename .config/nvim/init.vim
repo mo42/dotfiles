@@ -15,7 +15,7 @@ call vundle#end()
 " Plugin settings
 " vim-hardtime
 let g:hardtime_default_on = 1
-let g:hardtime_timeout = 8000
+let g:hardtime_timeout = 4000
 let g:hardtime_showmsg = 0
 let g:hardtime_maxcount = 4
 let g:hardtime_allow_different_key = 0
@@ -215,3 +215,11 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
+
+" K[ moves to [ and enter insert mode
+function! s:EditAt()
+  let c = nr2char(getchar())
+  exe "normal! f".c."l"
+  startinsert
+endfunction
+noremap K :<c-u>call <SID>EditAt()<cr>
