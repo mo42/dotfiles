@@ -11,6 +11,7 @@ Plugin 'tomasr/molokai'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'luochen1990/rainbow'
+Plugin 'mhinz/vim-signify'
 call vundle#end()
 " Plugin settings
 " vim-hardtime
@@ -135,6 +136,7 @@ iab GRUSSE Viele Grüße<cr>Moritz<esc>
 iab REGARDS Kind regards,<cr>Moritz<esc>
 iab MDLINK []()<esc>i
 iab MDIMAGE ![]()<esc>i
+iab PYDOC '''D.<cr><cr>Arguments:<cr>arg -- description<cr>returns -- description'''<esc>4ki
 " Space scrolls down in normal mode
 nmap <space> <pagedown>
 nmap <c-space> <pageup>
@@ -223,3 +225,5 @@ function! s:EditAt()
   startinsert
 endfunction
 noremap K :<c-u>call <SID>EditAt()<cr>
+
+
