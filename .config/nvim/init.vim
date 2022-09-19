@@ -16,10 +16,10 @@ call vundle#end()
 " vim-hardtime
 let g:hardtime_default_on = 1
 let g:hardtime_timeout = 8000
-let g:hardtime_showmsg = 0
-let g:hardtime_maxcount = 4
+let g:hardtime_showmsg = 1
+let g:hardtime_maxcount = 6
 let g:hardtime_allow_different_key = 0
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x"]
+let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x", "~", "dw"]
 let g:list_of_normal_keys += ["w", "b", "dd"]
 let g:hardtime_motion_with_count_resets = 1
 " rainbow
@@ -106,7 +106,7 @@ autocmd BufWrite * :set ff=unix
 " Visually wrap long lines
 set wrap
 " Number of lines above and below the cursor
-set scrolloff=0
+set scrolloff=5
 " Define leader key
 let mapleader=","
 " Fast file saving

@@ -128,6 +128,8 @@ alias vimv='qmv -f do'
 case `uname` in
   Darwin)
     alias ls='ls -G'
+    alias pip='pip3'
+    alias python='python3'
     ;;
   Linux)
     export OS_RELEASE_ID=`cat /etc/os-release | sed -n '/^ID=/p' | sed 's/^...//'`
