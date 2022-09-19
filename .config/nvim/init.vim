@@ -11,13 +11,14 @@ Plugin 'tomasr/molokai'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'luochen1990/rainbow'
+Plugin 'mhinz/vim-signify'
 call vundle#end()
 " Plugin settings
 " vim-hardtime
 let g:hardtime_default_on = 1
-let g:hardtime_timeout = 8000
-let g:hardtime_showmsg = 1
-let g:hardtime_maxcount = 6
+let g:hardtime_timeout = 4000
+let g:hardtime_showmsg = 0
+let g:hardtime_maxcount = 4
 let g:hardtime_allow_different_key = 0
 let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x", "~", "dw"]
 let g:list_of_normal_keys += ["w", "b", "dd"]
@@ -135,6 +136,7 @@ iab GRUSSE Viele Grüße<cr>Moritz<esc>
 iab REGARDS Kind regards,<cr>Moritz<esc>
 iab MDLINK []()<esc>i
 iab MDIMAGE ![]()<esc>i
+iab PYDOC '''D.<cr><cr>Arguments:<cr>arg -- description<cr>returns -- description'''<esc>4ki
 " Space scrolls down in normal mode
 nmap <space> <pagedown>
 nmap <c-space> <pageup>
@@ -215,3 +217,13 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
+
+" K[ moves to [ and enter insert mode
+function! s:EditAt()
+  let c = nr2char(getchar())
+  exe "normal! f".c."l"
+  startinsert
+endfunction
+noremap K :<c-u>call <SID>EditAt()<cr>
+
+
