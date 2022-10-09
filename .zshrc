@@ -98,7 +98,7 @@ alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
 alias cdd='cd ~/downloads'
 alias vi='nvim'
-alias cat='bat -p'
+alias cat='bat -p --paging=never'
 alias mutt='neomutt'
 alias grep='grep -i --color=always'
 alias -g G='| grep -i --color=always'
@@ -119,8 +119,8 @@ alias tr='task ready'
 alias ts='task start'
 alias te='task edit'
 
-alias bal='ledger --price-db price_history.db --market -f accounting.db balance'
-alias book='vim accounting.db'
+alias bal='ledger --price-db zettelkasten/price_history.db --market -f zettelkasten/accounting.db balance'
+alias book='nvim zettelkasten/accounting.db'
 
 # Modify file names in vim
 alias vimv='qmv -f do'
