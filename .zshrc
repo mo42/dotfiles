@@ -24,6 +24,10 @@ if [ -d "/Library/TeX/texbin" ]; then
   export PATH=/Library/TeX/texbin:$PATH
 fi
 
+if [ -d "/opt/homebrew/bin" ]; then
+  export PATH=/opt/homebrew/bin:$PATH
+fi
+
 # Space before | and & after completion
 export ZLE_SPACE_SUFFIX_CHARS=$'|&'
 
@@ -119,8 +123,8 @@ alias tr='task ready'
 alias ts='task start'
 alias te='task edit'
 
-alias bal='ledger --price-db zettelkasten/price_history.db --market -f zettelkasten/accounting.db balance'
-alias book='nvim zettelkasten/accounting.db'
+alias bal='ledger --price-db zettelkasten/price_history.db --market -f zettelkasten/accounting balance'
+alias book='nvim zettelkasten/accounting'
 
 # Modify file names in vim
 alias vimv='qmv -f do'

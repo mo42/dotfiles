@@ -212,11 +212,6 @@ autocmd BufReadPost *
      \ endif
 set clipboard=unnamedplus
 nnoremap <leader>* *#
-" Return to last edit position when opening files
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal! g`\"" |
-  \ endif
 
 " K[ moves to [ and enter insert mode
 function! s:EditAt()
@@ -225,5 +220,3 @@ function! s:EditAt()
   startinsert
 endfunction
 noremap K :<c-u>call <SID>EditAt()<cr>
-
-
