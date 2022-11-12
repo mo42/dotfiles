@@ -123,8 +123,8 @@ alias tr='task ready'
 alias ts='task start'
 alias te='task edit'
 
-alias bal='ledger --price-db zettelkasten/price_history.db --market -f zettelkasten/accounting balance'
-alias book='nvim zettelkasten/accounting'
+alias bal='ledger --price-db ~/zettelkasten/price_history --market -f ~/zettelkasten/accounting balance'
+alias book='nvim ~/zettelkasten/accounting'
 
 # Modify file names in vim
 alias vimv='qmv -f do'
