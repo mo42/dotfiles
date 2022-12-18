@@ -23,3 +23,8 @@ git init --bare $HOME/.dotfiles
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 dotgit config status.showUntrackedFiles no
 ```
+
+## Setup NeoVim
+```sh
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
+```

@@ -16,18 +16,6 @@ if [ -d "$HOME/.cargo/bin" ]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
 
-if [ -d "$HOME/.cabal/bin" ]; then
-  export PATH=$HOME/.cabal/bin:$PATH
-fi
-
-if [ -d "/Library/TeX/texbin" ]; then
-  export PATH=/Library/TeX/texbin:$PATH
-fi
-
-if [ -d "/opt/homebrew/bin" ]; then
-  export PATH=/opt/homebrew/bin:$PATH
-fi
-
 # Space before | and & after completion
 export ZLE_SPACE_SUFFIX_CHARS=$'|&'
 
@@ -125,6 +113,8 @@ alias te='task edit'
 
 alias bal='ledger --price-db ~/zettelkasten/price_history --market -f ~/zettelkasten/accounting balance'
 alias book='nvim ~/zettelkasten/accounting'
+
+alias batcap='cat /sys/class/power_supply/macsmc-battery/capacity'
 
 # Modify file names in vim
 alias vimv='qmv -f do'
