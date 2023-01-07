@@ -229,9 +229,3 @@ if [[ "$UID" == "0" ]]; then
 else
   PROMPT="%{$fg_bold[green]%}%n%{$fg_bold[red]%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$fg_bold[green]%}%#%{$reset_color%} "
 fi
-
-# https://github.com/rupa/z
-source ~/code/z/z.sh
-if [ -f "$HOME/.7l.sh" ]; then
-  source ~/.7l.sh
-fi
