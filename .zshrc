@@ -149,6 +149,7 @@ zstyle ':completion:*:*:(pdf|lua)latex:*' file-patterns '*(-/):directories *.tex
 # Enable colors for completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+unsetopt completealiases
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
 # Create archive files
