@@ -18,8 +18,8 @@ call vundle#end()
 let g:hardtime_default_on = 1
 let g:hardtime_timeout = 4000
 let g:hardtime_showmsg = 0
-let g:hardtime_maxcount = 4
-let g:hardtime_allow_different_key = 0
+let g:hardtime_maxcount = 2
+let g:hardtime_allow_different_key = 1
 let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "x", "~", "dw"]
 let g:list_of_normal_keys += ["w", "b", "dd"]
 let g:hardtime_motion_with_count_resets = 1
