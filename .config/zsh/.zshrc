@@ -1,9 +1,5 @@
 #!/bin/zsh
 
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export EDITOR=nvim
-
 if [ -d "$HOME/bin" ]; then
   export PATH=$HOME/bin:$PATH
 fi
@@ -19,11 +15,9 @@ fi
 # Space before | and & after completion
 export ZLE_SPACE_SUFFIX_CHARS=$'|&'
 
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-REPORTTIME=60
-LISTMAX=0
+export REPORTTIME=60
+export LISTMAX=0
+export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
 # Vim-like behaviour
 bindkey -v
@@ -150,7 +144,6 @@ zstyle ':completion:*:*:(pdf|lua)latex:*' file-patterns '*(-/):directories *.tex
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 unsetopt completealiases
-export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
 # Create archive files
 function carchive() {
