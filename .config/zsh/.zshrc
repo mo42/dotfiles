@@ -125,8 +125,8 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 # Frequently used files
 alias vrc='$EDITOR ~/.config/nvim/init.vim'
-alias zrc='$EDITOR ~/.zshrc'
-alias zsrc='source ~/.zshrc'
+alias zrc='$EDITOR $ZDOTDIR/.zshrc'
+alias zsrc='source $ZDOTDIR/.zshrc'
 alias mrc='$EDITOR ~/.config/neomutt/muttrc'
 alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
