@@ -116,6 +116,12 @@ setopt auto_param_keys
 setopt auto_param_slash
 # Avoid false reports of spelling errors
 setopt hash_list_all
+# Directory stack
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 # Frequently used files
 alias vrc='$EDITOR ~/.config/nvim/init.vim'
