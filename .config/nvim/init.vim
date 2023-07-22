@@ -15,7 +15,7 @@ Plugin 'mhinz/vim-signify'
 call vundle#end()
 " Plugin settings
 " vim-hardtime
-let g:hardtime_default_on = 1
+let g:hardtime_default_on = 0
 let g:hardtime_timeout = 4000
 let g:hardtime_showmsg = 0
 let g:hardtime_maxcount = 2
