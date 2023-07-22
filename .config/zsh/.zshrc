@@ -15,6 +15,9 @@ fi
 # Space before | and & after completion
 export ZLE_SPACE_SUFFIX_CHARS=$'|&'
 
+export HISTSIZE=100000
+export SAVEHIST=100000
+
 export REPORTTIME=60
 export LISTMAX=0
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
@@ -130,6 +133,8 @@ alias zsrc='source $ZDOTDIR/.zshrc'
 alias mrc='$EDITOR ~/.config/neomutt/muttrc'
 alias zettel='cd ~/zettelkasten && $EDITOR index.md'
 
+alias w3m='rm -f ~/.w3m/cookie; w3m'
+
 alias cdd='cd ~/downloads'
 alias vi='nvim'
 alias cat='bat -p --paging=never'
@@ -145,7 +150,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 
 alias gitdeletemerged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
-alias gitg='gitg &>/dev/null &'
+alias gg='git grep -r'
 
 # Taskwarrior
 alias td='task done'
