@@ -140,7 +140,6 @@ alias vi='nvim'
 alias cat='bat -p --paging=never'
 alias mutt='neomutt'
 alias grep='grep -i --color=always'
-alias -g G='| grep -i --color=always'
 alias du='du -h'
 alias df='df -h'
 # Manage dotfiles using git
@@ -150,7 +149,11 @@ alias mv='mv -i'
 alias cp='cp -i'
 
 alias gitdeletemerged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+function gitrebi() { git rebase -i HEAD~$1 }
 alias gg='git grep -r'
+alias gl='git log --pretty=format:"%an | %s"'
+
+alias dot_clean='find . -type f -name "._*"'
 
 # Taskwarrior
 alias td='task done'
@@ -165,6 +168,8 @@ alias batcap='cat /sys/class/power_supply/macsmc-battery/capacity'
 
 # Modify file names in vim
 alias vimv='qmv -f do'
+alias lsa="grep ^alias $ZDOTDIR/.zshrc | sort"
+alias open='xdg-open'
 
 case `uname` in
   Darwin)

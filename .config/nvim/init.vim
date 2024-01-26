@@ -6,16 +6,17 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'takac/vim-hardtime'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'mo42/badwords'
+Plugin 'mo42/vim-weaselwords'
 Plugin 'tomasr/molokai'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'luochen1990/rainbow'
 Plugin 'mhinz/vim-signify'
+Plugin 'tpope/vim-commentary'
 call vundle#end()
 " Plugin settings
 " vim-hardtime
-let g:hardtime_default_on = 0
+let g:hardtime_default_on = 1
 let g:hardtime_timeout = 4000
 let g:hardtime_showmsg = 0
 let g:hardtime_maxcount = 2
@@ -158,7 +159,7 @@ function CycleSpellLanguage()
   let languages = ['', 'en_us', 'de_de']
   let i = (index(languages, g:current_spell_language) + 1) % len(languages)
   let g:current_spell_language = languages[i]
-  call HighlightBadwords(g:current_spell_language)
+  call HighlightWeaselWords(g:current_spell_language)
   if empty(g:current_spell_language)
     set nospell
     echo 'No spell language'
@@ -220,3 +221,4 @@ function! s:EditAt()
   startinsert
 endfunction
 noremap K :<c-u>call <SID>EditAt()<cr>
+autocmd FileType sql setlocal commentstring=--\ %s
