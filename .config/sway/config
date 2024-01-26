@@ -1,3 +1,4 @@
+output * bg #000000 solid_color
 output * scale 2
 # Mod1 for Alt.
 # Mod4 for command key on MacBook Pro
