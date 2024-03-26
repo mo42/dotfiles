@@ -1,6 +1,0 @@
-*saveLines: 1000
-XTerm*scrollBar: false
-*foreground: white
-*background: black
-*font: xft:Liberation Mono:pixelsize=25:antialias=true:hinting=true
-*cursorBlink: 0

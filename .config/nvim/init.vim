@@ -160,6 +160,7 @@ function CycleSpellLanguage()
   let i = (index(languages, g:current_spell_language) + 1) % len(languages)
   let g:current_spell_language = languages[i]
   call HighlightWeaselWords(g:current_spell_language)
+  call HighlightPassive(g:current_spell_language)
   if empty(g:current_spell_language)
     set nospell
     echo 'No spell language'
@@ -186,6 +187,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 iab teh the
 iab tath that
 iab goverment government
+iab centrail central
 " LaTeX settings
 augroup tex
   autocmd FileType tex setlocal wrap
