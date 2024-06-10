@@ -1,0 +1,6 @@
+# MBP M1 running Asahi Linux
+set $mod Mod4
+output eDP-1 scale 2
+set $mod Mod4
+bindsym $mod+n exec thunar
+set $term foot

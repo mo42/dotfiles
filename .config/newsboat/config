@@ -1,0 +1,16 @@
+show-read-feeds no
+show-read-articles no
+text-width 80
+goto-next-feed no
+confirm-mark-all-feeds-read no
+confirm-mark-feed-read no
+browser "open -a firefox -g %u"
+
+bind-key j down feedlist
+bind-key k up feedlist
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key j down article
+bind-key k up article

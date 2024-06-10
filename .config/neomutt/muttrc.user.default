@@ -1,0 +1,22 @@
+# The real name that appears when sending mails
+set realname="John Doe"
+# The mail address that appears when sending mails
+set from="john@example.com"
+# The send command
+set sendmail="/usr/bin/msmtp -v -a john"
+# Where incoming mails are stored
+set spoolfile="~/.maildir/john/inbox"
+# Where outgoing mails are stored
+set record="~/.maildir/john/sent"
+# Where edited mails are stored
+set postponed="~/.maildir/john/drafts"
+# GPG settings
+set pgp_sign_as=0xXXXXXXXX
+my_hdr X-PGP-Fingerprint: XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX 
+my_hdr X-PGP-Key: http://example.com/john.asc
+# Specify type and location of the mails
+set mbox_type=Maildir
+set folder="~/.maildir/"
+# Add signature conditionally
+send-hook '.*' set signature='~/.mutt/signature'
+send-hook '~C example@example.com' unset signature

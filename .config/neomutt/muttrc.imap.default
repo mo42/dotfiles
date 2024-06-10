@@ -1,0 +1,18 @@
+# The real name that appears when sending mails
+set realname="John Doe"
+# The mail address that appears when sending mails
+set from="john@example.com"
+# The IMAP password
+set imap_pass="verysecretpassword"
+set smtp_pass="verysecretpassword"
+# Or
+set imap_pass=`pass path/to/password/file`
+set smtp_pass=`pass path/to/password/file`
+# The IMAP user name
+set imap_user="john"
+set smtp_url="smtp://smtp.example.com:25"
+set folder="imaps://imaps.example.com:993"
+set spoolfile="+INBOX"
+set record="+Sent"
+set postponed="+Drafts"
+set header_cache="~/.cache/mutt/headers"

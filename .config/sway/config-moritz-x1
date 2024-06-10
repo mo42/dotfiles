@@ -1,0 +1,4 @@
+output eDP-1 scale 1.2
+set $mod Mod1
+set $term alacritty -o font.size=16
+bindsym $mod+n exec nautilus
