@@ -4,7 +4,7 @@ text-width 80
 goto-next-feed no
 confirm-mark-all-feeds-read no
 confirm-mark-feed-read no
-browser "open -a firefox -g %u"
+browser "firefox %u"
 
 bind-key j down feedlist
 bind-key k up feedlist

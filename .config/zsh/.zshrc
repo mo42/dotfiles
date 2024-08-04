@@ -127,6 +127,7 @@ alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 # Frequently used files
+alias rssurls='$EDITOR ~/.config/newsboat/urls'
 alias vrc='$EDITOR ~/.config/nvim/init.vim'
 alias zrc='$EDITOR $ZDOTDIR/.zshrc'
 alias zsrc='source $ZDOTDIR/.zshrc'
