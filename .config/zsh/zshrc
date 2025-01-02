@@ -1,0 +1,128 @@
+#!/bin/zsh
+
+alias vi='$EDITOR'
+
+# Dotfiles
+alias zrc='$EDITOR $ZDOTDIR/.zshrc'
+alias vrc='$EDITOR $XDG_CONFIG_HOME/nvim/init.vim'
+alias mrc='$EDITOR $XDG_CONFIG_HOME/neomutt/muttrc'
+
+# Productivity
+alias tr='task ready'
+alias td='task done'
+alias ts='task start'
+alias te='task edit'
+
+# Accounting
+alias bal='ledger --price-db ~/zettelkasten/price_history --market -f ~/zettelkasten/accounting balance'
+alias book='$EDITOR ~/zettelkasten/accounting'
+
+alias vimv='qmv -f do'
+alias mv='mv -i'
+alias cp='cp -i'
+alias texclean='rm -f *.(aux|bbl|blg|fls|lof|log|lot|out|toc|acn|acr|alg|bcf|fdb_latexmk|fls|glg|glo|gls|glsdefs|run.xml|lbl)'
+alias cdd='cd ~/downloads'
+alias op='xdg-open'
+
+# https://github.com/mo42/dotfiles
+alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Git
+alias gitdeletemerged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+function gitrebi() { git rebase -i HEAD~$1 }
+alias gg='git grep -r'
+
+autoload -U compinit; compinit
+
+if [ -d "$HOME/.dotfiles" ]; then
+  alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+  compdef dotgit=git
+fi
+
+# Vim-like behavior in Zsh
+bindkey -v
+bindkey -M vicmd 'k' history-beginning-search-backward
+bindkey -M vicmd 'j' history-beginning-search-forward
+bindkey -M viins 'jk' vi-cmd-mode
+# https://thevaluable.dev/zsh-install-configure-mouseless/
+cursor_mode() {
+    # See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
+    cursor_block='\e[2 q'
+    cursor_beam='\e[6 q'
+
+    function zle-keymap-select {
+        if [[ ${KEYMAP} == vicmd ]] ||
+            [[ $1 = 'block' ]]; then
+            echo -ne $cursor_block
+        elif [[ ${KEYMAP} == main ]] ||
+            [[ ${KEYMAP} == viins ]] ||
+            [[ ${KEYMAP} = '' ]] ||
+            [[ $1 = 'beam' ]]; then
+            echo -ne $cursor_beam
+        fi
+    }
+
+    zle-line-init() {
+        echo -ne $cursor_beam
+    }
+
+    zle -N zle-keymap-select
+    zle -N zle-line-init
+}
+
+cursor_mode
+
+# Edit text objects in Zsh
+autoload -Uz select-bracketed select-quoted
+zle -N select-quoted
+zle -N select-bracketed
+for km in viopp visual; do
+  bindkey -M $km -- '-' vi-up-line-or-history
+  for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
+    bindkey -M $km $c select-quoted
+  done
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $km $c select-bracketed
+  done
+done
+
+pdf() {
+  if [[ -x `which zathura` ]]; then
+    zathura --fork $1
+  elif [[ -x `which evince` ]]; then
+    evince $1 &
+  elif [[ -x `which open` ]]; then
+    open $1 &
+  else
+    printf "Error: no decent pdf reader available!"
+  fi
+}
+
+# Directory stack
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+
+alias d='dirs -v'
+for index ({0..9}) alias "$index"="cd +${index}"; unset index
+
+# Function to set the prompt
+set_prompt() {
+  local user_prompt=""
+  
+  # Show username and hostname if other than mo
+  if [[ "$USER" != "mo" ]]; then
+    user_prompt="${USER}@%m"
+  fi
+  # Set the prompt
+  PROMPT="${user_prompt} %~ %# "
+}
+
+# Call the function to set the prompt
+set_prompt
+
+for file in $ZDOTDIR/*.zsh; do
+  if [[ -f "$file" ]]; then
+    source "$file"
+  fi
+done

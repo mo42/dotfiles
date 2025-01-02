@@ -1,0 +1,53 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 14,
+  "modules-left": [
+    "sway/workspaces"
+  ],
+  "modules-right": [
+    "network",
+    "battery",
+    "clock"
+  ],
+
+  "battery": {
+    "interval": 30,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "  {icon}  {capacity}%", // Icon: bolt
+    "format-discharging": " {icon}  {capacity}%",
+    "format-icons": [
+      "", // Icon: battery-full
+      "", // Icon: battery-three-quarters
+      "", // Icon: battery-half
+      "", // Icon: battery-quarter
+      ""  // Icon: battery-empty
+    ],
+    "tooltip": true
+  },
+
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "network": {
+    "interval": 10,
+    "format-wifi": "  {signalStrength}%",
+    "format-disconnected": "⚠  Disconnected",
+  },
+
+  "sway/workspaces": {
+    "all-outputs": false,
+    "disable-scroll": true,
+    "format": "{icon} {name}",
+    "format-icons": {
+      "urgent": "🔴",
+      "focused": "•",
+      "default": "•"
+    }
+}
+}
