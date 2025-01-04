@@ -1,0 +1,103 @@
+# Load user specific settings
+source ~/.config/neomutt/muttrc.user
+# Remove help line on top
+set help=no
+# Save edited mail
+set postpone=yes
+# Do not pause while moving from folder to folder
+set sleep_time=0
+# Pad blank lines to the bottom of the screen
+set tilde
+# Aligns with text
+set attribution='* %f %d:'
+# View HTML mails
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+# Use ISO 8601 date
+set date_format='%Y-%m-%d %H:%M:%S %z'
+set index_format='%Z %{%Y-%m-%d} %-22.22L %s'
+# Call urlview to extract links
+macro index \cb '|urlview\n' 'call urlview to extract URLs'
+macro pager \cb '|urlview\n' 'call urlview to extract URLs'
+# Wrap lines at the word boundary and do not show marker
+set smart_wrap
+unset markers
+# Specify forward format (see attribution) and add message to body
+set forward_format='Fwd: %s'
+set forward_attribution_intro='/ %f %d:'
+set forward_attribution_trailer=''
+set forward_quote
+set editor='$EDITOR'
+# Allow changes to the header
+set edit_headers=yes
+set pager_context=3
+set pager_index_lines=11
+set menu_scroll
+set reverse_realname=no
+# Do not beep
+set beep=no
+set hidden_host
+# Weed headers
+set weed
+set mime_forward_decode
+set forward_quote
+set include=yes
+set markers=no
+set sort=threads
+set sort_aux=date-sent
+set allow_8bit
+set fast_reply
+set sleep_time=0
+# Keep sent mails unencrypted
+set fcc_clear
+# Header caching
+set header_cache='~/.mutt/cache'
+# Setup urlscan
+macro index,pager \cb "<pipe-message> urlscan<Enter>" \
+  "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" \
+  "call urlscan to extract URLs out of a message"
+
+ignore	*
+unignore	to cc bcc subject date
+unignore	authenticated-sender apparently-from
+unignore	x-address x-organisation reply-to
+unignore	mail-followup-to
+
+# Do not sign outgoing mails
+set crypt_autosign=no
+# Do not encrypt outgoing mails
+set crypt_autoencrypt=no
+# Encrypt answers from encrypted mails
+set crypt_replyencrypt=yes
+# Forget PGP password after one hour
+set pgp_timeout=3600
+set pgp_use_gpg_agent=yes
+# Do not scroll to very end
+set menu_context=7
+
+macro index,pager a "<save-message>=mo42/archive/<enter>" "archive messages"
+
+bind index '{'      previous-thread
+bind index '}'      next-thread
+bind index R        group-reply
+bind index <space>  collapse-thread
+
+# Addresses
+set query_command="abook --mutt-query '%s'"
+#macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor <tab> complete-query
+
+# Check for new mail every 30 minutes
+set mail_check=1800
+# Ask for CC and BCC
+set askcc=yes
+set askbcc=yes
+# Abort if the message body contains hints that there should be an attachment
+set abort_noattach=yes
+set abort_noattach_regexp='attach|anhang|angehängt'
+set mailcap_path='~/.config/neomutt/mailcap'
+# Fix subject line
+set reply_regexp="^((re([\[^-][0-9]+\]?)*|aw|antwort|antw):[ \t]*)+"
+set signature="~/.config/neomutt/signature"
+macro index,pager A "<save-message>=[Gmail]/All%20Mail<enter>"
