@@ -1,6 +1,6 @@
 # dotfiles
 
-![dotfiles example in Sway](.example.png)
+![dotfiles example in Sway](example.png)
 
 I manage my dotfiles directly with `git`
 ([based on this HN post](https://news.ycombinator.com/item?id=11071754)).

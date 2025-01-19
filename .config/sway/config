@@ -12,6 +12,13 @@ input "1267:12792:ELAN067B:00_04F3:31F8_Touchpad" {
   middle_emulation enabled
 }
 
+input "1267:13:Elan_Touchpad" {
+  dwt enabled
+  tap enabled
+  natural_scroll enabled
+  middle_emulation enabled
+}
+
 set $left h
 set $down j
 set $up k

@@ -1,0 +1,6 @@
+[alias]
+    s = status
+    c = checkout
+    b = branch
+    c = commit
+    p = push --force-with-lease
