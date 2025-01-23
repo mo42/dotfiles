@@ -32,6 +32,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+c exec firefox
 bindsym $mod+Shift+c exec firefox -private-window
 bindsym $mod+g exec grim -g "$(slurp)" screen.png
+bindsym $mod+Shift+g exec grim -g screen.png
 bindsym $mod+p exec swaylock -c 000000ff
 
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill

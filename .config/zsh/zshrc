@@ -4,7 +4,7 @@ alias vi='$EDITOR'
 
 # Dotfiles
 alias zrc='$EDITOR $ZDOTDIR/.zshrc'
-alias vrc='$EDITOR $XDG_CONFIG_HOME/nvim/init.vim'
+alias vrc='$EDITOR $XDG_CONFIG_HOME/nvim/init.lua'
 alias mrc='$EDITOR $XDG_CONFIG_HOME/neomutt/muttrc'
 
 # Productivity

@@ -23,6 +23,12 @@ require('packer').startup(function(use)
   use 'mo42/vim-weaselwords'
 end)
 
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.incsearch = true
+vim.o.hlsearch = true
+vim.o.wrapscan = true
+
 -- Hardtime configuration
 vim.g.hardtime_default_on = 1
 vim.g.hardtime_timeout = 4000
