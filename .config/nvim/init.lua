@@ -116,12 +116,8 @@ local function cycle_spell_language()
     vim.opt.spelllang = current_spell_language
     print('Current spell language: ' .. current_spell_language)
   end
-  if type(HighlightWeaselWords) == "function" then
-    HighlightWeaselWords(current_spell_language)
-  end
-  if type(HighlightPassive) == "function" then
-    HighlightPassive(current_spell_language)
-  end
+  vim.fn['HighlightWeaselWords'](current_spell_language)
+  vim.fn['HighlightPassive'](current_spell_language)
 end
 
 vim.keymap.set('n', '<leader>l', cycle_spell_language, { desc = "Cycle through spell languages" })
