@@ -1,6 +1,6 @@
 # dotfiles
 
-![dotfiles example in Sway](example.png)
+![dotfiles example in Sway](.example.png)
 
 I manage my dotfiles directly with `git`
 ([based on this HN post](https://news.ycombinator.com/item?id=11071754)).
@@ -9,7 +9,7 @@ I manage my dotfiles directly with `git`
 ```sh
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/mo42/dotfiles.git dotfiles-tmp
 cp -r dotfiles-tmp/.* ~
-rm -r ~/tmp-dotfiles
+rm -r ~/dotfiles-tmp
 ```
 
 ## Example: Add Vim Configuration
