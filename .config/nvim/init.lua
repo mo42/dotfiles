@@ -21,6 +21,7 @@ local packer_bootstrap = ensure_packer()
 require('packer').startup(function(use)
   use 'takac/vim-hardtime'
   use 'mo42/vim-weaselwords'
+  use 'mo42/vim-kaizen'
 end)
 
 vim.o.ignorecase = true

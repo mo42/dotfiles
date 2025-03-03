@@ -23,6 +23,7 @@ alias cp='cp -i'
 alias texclean='rm -f *.(aux|bbl|blg|fls|lof|log|lot|out|toc|acn|acr|alg|bcf|fdb_latexmk|fls|glg|glo|gls|glsdefs|run.xml|lbl)'
 alias cdd='cd ~/downloads'
 alias op='xdg-open'
+alias cat='bat --theme="Monokai Extended Light" -p'
 
 # https://github.com/mo42/dotfiles
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
