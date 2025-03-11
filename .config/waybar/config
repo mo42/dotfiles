@@ -6,6 +6,7 @@
     "sway/workspaces"
   ],
   "modules-right": [
+    "custom/bluetooth",
     "network",
     "battery",
     "clock"
@@ -49,5 +50,11 @@
       "focused": "•",
       "default": "•"
     }
-}
+  },
+
+  "custom/bluetooth": {
+    "exec": "bluetoothctl devices Connected | cut -d' ' -f3-",
+    "interval": 10,
+    "tooltip": "Connected Bluetooth Device"
+  }
 }
