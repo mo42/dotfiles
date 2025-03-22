@@ -1,1 +1,15 @@
-/*
+*
+!.config/foot
+!.config/git
+!.config/neomutt
+!.config/nvim
+!.config/sway
+!.config/waybar
+!.config/zsh
+!.config/user-dirs.dirs
+!.config/user-dirs.locale
+!.example.png
+!.zprofile
+!.zshenv
+!LICENSE
+!README.md
