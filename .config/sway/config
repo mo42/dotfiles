@@ -1,6 +1,11 @@
 output eDP-1 scale 1.2
 set $mod Mod1
 
+exec swayidle -w \
+  timeout 120 'swaylock -f -c 000000' \
+  timeout 600 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"'
+
 bindsym $mod+q kill
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
