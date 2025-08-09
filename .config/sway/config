@@ -35,6 +35,7 @@ bindsym $mod+Return exec $term
 set $menu wmenu-run
 bindsym $mod+d exec $menu
 bindsym $mod+c exec firefox
+bindsym $mod+n exec nautilus
 bindsym $mod+Shift+c exec firefox -private-window
 bindsym $mod+g exec grim -g "$(slurp)" screen.png
 bindsym $mod+Shift+g exec grim -g screen.png
@@ -55,10 +56,12 @@ bindsym $mod+Shift+$right move right
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
 
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
 
 bindsym $mod+w layout tabbed
 bindsym $mod+f fullscreen
@@ -78,5 +81,8 @@ smart_gaps off
 gaps inner 6
 gaps outer 6
 default_border none
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
 
 include /etc/sway/config.d/*
